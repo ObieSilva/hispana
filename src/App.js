@@ -1,7 +1,9 @@
 function App() {
   return (
     <div className="App">
-      <div>CFC Hispana!</div>
+      <div>
+        <p className="text-3xl font-medium">CFC Hispana!</p>
+      </div>
     </div>
   );
 }
