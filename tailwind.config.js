@@ -4,11 +4,16 @@ module.exports = {
   theme: {
     extend: {},
     colors: {
-      primary: "#ffffff",
+      // background, main elements
+      main: "#ffffff",
+      // headers, text, icons
       secondary: "#000000",
-      accent: "#5d31ce",
-      red: "#c13636",
-      whiteSmoke: "#f5f5f5",
+      // call to actions
+      accent: "#c13636",
+      // others
+      error: "#cc0000",
+      darkShade: "#5d31ce",
+      lightShade: "#f5f5f5",
     },
     fontFamily: {
       sans: ["IBM Plex Sans", "sans-serif"],
