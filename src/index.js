@@ -7,10 +7,34 @@ import App from "./App";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+// React Router
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Link,
+} from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <div>
+        <App />
+        <Link to="about">About Us</Link>
+      </div>
+    ),
+  },
+  {
+    path: "about",
+    element: <div>About</div>,
+  },
+]);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
     <ToastContainer />
   </React.StrictMode>
 );
