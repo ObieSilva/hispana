@@ -1,10 +1,10 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
+import PrimaryButton from '@mui/material/Button';
 
-const button = ({title}) => {
+const Button = ({title}) => {
   return (
-    <Button variant="contained">{title}</Button>
+    <PrimaryButton variant="contained">{title}</PrimaryButton>
   )
 }
 
-export default button
+export default Button

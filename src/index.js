@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
+import { ApolloProvider } from '@apollo/client'
+import { client } from "./client";
 
 // React ReactToastify
 import { ToastContainer } from "react-toastify";
@@ -13,23 +15,16 @@ import { createBrowserRouter, RouterProvider, Link } from "react-router-dom";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <div>
-        <App />
-        <Link to="about">About Us</Link>
-      </div>
-    ),
-  },
-  {
-    path: "about",
-    element: <div>About</div>,
+    element: <App />,
   },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <ApolloProvider client={client}>
+      <RouterProvider router={router} />
+    </ApolloProvider>
     <ToastContainer />
   </React.StrictMode>
 );
