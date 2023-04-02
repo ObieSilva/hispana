@@ -24,7 +24,7 @@ root.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
       <RouterProvider router={router} />
+      <ToastContainer />
     </ApolloProvider>
-    <ToastContainer />
   </React.StrictMode>
 );
