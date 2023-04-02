@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <div>
     <Header />
-    <img className="h-[500px] w-full object-cover" src={backgroundImage}></img>
+    <img className="h-[500px] w-full object-cover" src={backgroundImage} alt="Outdoor"></img>
     </div>
   )
 }
