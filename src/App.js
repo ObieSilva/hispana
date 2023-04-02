@@ -18,7 +18,7 @@ export default function App() {
     }
   `);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p>Loading Website...</p>;
   if (error) return <p>Error :(</p>;
 
   return (
