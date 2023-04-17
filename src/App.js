@@ -12,24 +12,21 @@ export default function App() {
     }
 
     fragment SermonFields on Sermon {
-      title
-      speakerName
-      date
+      sermonTitle
     }
   `);
-
+    console.log(data);
   if (loading) return <p>Loading Website...</p>;
-  if (error) return <p>Error :(</p>;
+  if (error) return console.log('ERROR', error);
 
   return (
     <div className="App h-full">
       <Home />
       <div>
         {data.sermons.nodes.map((sermon) => (
-          <div key={sermon.title}>
-            <h3>{sermon.title}</h3>
-            <p>{sermon.speakerName}</p>
-            <p>{sermon.date}</p>
+          <div key={sermon.sermonTitle}>
+            <h3>{sermon.sermonTitle}</h3>
+            <p>{sermon.sermonDetail}</p>
           </div>
         ))}
       </div>
