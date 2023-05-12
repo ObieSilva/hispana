@@ -18,7 +18,7 @@ const MinistryCard = ({ ministry }) => (
         <div
           className="ministry-description"
           dangerouslySetInnerHTML={{
-            __html: ministry.ministryDescription,
+            __html: ministry.description,
           }}
         />
       </div>
