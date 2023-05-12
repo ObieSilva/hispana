@@ -8,7 +8,6 @@ export const HOME_QUERIES = gql`
           title
           home {
             currentSermon
-            sermonTitle
             ministries {
               ministryDescription
               image {
