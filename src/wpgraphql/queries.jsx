@@ -9,7 +9,7 @@ export const HOME_QUERIES = gql`
           home {
             currentSermon
             ministries {
-              ministryDescription
+              description
               image {
                 sourceUrl
                 altText
