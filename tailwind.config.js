@@ -2,7 +2,19 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      maxWidth: {
+        'xs': '576px',
+        'sm': '576px',
+        'md': '768px',
+        'lg': '992px',
+        'xl': '1200px',
+        '2xl': '1400px',
+      },
+      fontFamily: {
+        sans: ['Roboto', 'sans-serif'],
+      },
+    },
     colors: {
       // background, main elements
       'main': '#ffffff',
