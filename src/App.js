@@ -1,49 +1,39 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useQuery } from "@apollo/client";
 import { HOME_QUERIES } from "./wpgraphql/queries";
 import Loading from "./components/reusable/Loading";
 import Error from "./components/reusable/Error";
-import Home from "./pages/Home";
+import Home from "./pages/home/Home";
 import MapEmbed from "./components/MapEmbed";
-import SermonEmbed from "./components/CurrentSermon";
-import MinistryCard from "./components/MinistryCard";
+import PageContent from "./pages/home/PageContent";
+import Banner from "./components/Banner";
 
-const App = () => {
-  const [data, setData] = useState([]);
-
-  const { loading, error, data: graphData } = useQuery(HOME_QUERIES);
-
-  useEffect(() => {
-    if (graphData) {
-      setData(graphData.pages.edges);
-    }
-  }, [graphData]);
+function App() {
+  const { loading, error, data } = useQuery(HOME_QUERIES);
+  const pages = data?.pages?.edges || [];
+  const topBanner = data?.pages?.edges.find(({ node }) => node.home?.topBanner?.displayBanner)?.node?.home?.topBanner || null;
 
   if (loading) return <Loading />;
   if (error) return <Error error={error} />;
 
   return (
     <div className="App h-full">
-      <Home data={data} />
+      {topBanner?.displayBanner && (
+        <Banner
+          information={topBanner.information}
+          displayBanner={topBanner.displayBanner}
+          bannerType="topBanner"
+        />
+      )}
       <div className="container max-w-lg mx-auto px-4">
-        {data.map((page, index) => (
-          <div key={page.node.title}>
-            {page.node.home.currentSermon && (
-              <SermonEmbed sermonUrl={page.node.home.currentSermon} />
-            )}
-            {page.node.home.ministries && (
-              <div className="card-container grid gap-4 md:grid-cols-2 lg:grid-cols-3 mt-4">
-                {page.node.home.ministries.map((ministry) => (
-                  <MinistryCard key={ministry.title} ministry={ministry} />
-                ))}
-              </div>
-            )}
-          </div>
+        <Home data={pages.map(({ node }) => node)} />
+        {pages.map(({ node }) => (
+          <PageContent node={node} />
         ))}
         <MapEmbed />
       </div>
     </div>
   );
-};
+}
 
 export default App;

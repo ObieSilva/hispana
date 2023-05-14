@@ -15,6 +15,14 @@ export const HOME_QUERIES = gql`
                 altText
               }
             }
+            informationBanner {
+              displayBanner
+              information
+            }
+            topBanner {
+              displayBanner
+              information
+            }
           }
         }
       }
