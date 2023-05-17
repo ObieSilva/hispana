@@ -5,13 +5,13 @@ import Banner from "./components/Banner";
 import { useQuery } from "@apollo/client";
 import { HOME_QUERIES } from "./wpgraphql/queries";
 import Loading from "./components/reusable/Loading";
-import Error from "./components/reusable/Error";
+import ErrorAlert from "./components/reusable/ErrorAlert";
 
 function App() {
   const { loading, error, data } = useQuery(HOME_QUERIES);
 
   if (loading) return <Loading />;
-  if (error) return <Error error={error} />;
+  if (error) return <ErrorAlert error={error} />;
 
   const topBanner = data?.pages?.edges
     .find(({ node }) => node.home?.topBanner?.displayBanner)
