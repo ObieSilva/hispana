@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.png";
-import HispanaButton from "./reusable/HispanaButton";
 import { FiMenu, FiX } from "react-icons/fi";
+import { RiFacebookFill, RiInstagramLine, RiYoutubeLine } from "react-icons/ri";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
     <div className="w-full">
@@ -19,18 +17,54 @@ const Header = () => {
         </div>
       </nav>
       <div
-        className={`fixed top-0 right-0 bottom-0 left-0 transition-transform duration-300 ease-in-out ${
-          isMenuOpen ? "transform translate-x-0" : "transform translate-x-full"
+        className={`fixed top-0 left-0 w-full h-full bg-[#000000] bg-opacity-80 transition-opacity duration-300 ${
+          isMenuOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        }`}
+        onClick={toggleMenu}
+      ></div>
+      <div
+        className={`fixed top-0 right-0 h-full w-full sm:w-full lg:w-[400px] bg-main transition-transform duration-300 ease-in-out transform ${
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="bg-main h-full w-full p-4">
-          <div className="flex flex-col justify-center items-center h-full">
-            <HispanaButton title="Facebook" variant="text" url="https://www.facebook.com/HispanaCFC/" />
-            <HispanaButton title="Instagram" variant="text" url="https://www.instagram.com/cfchispana/" />
-            <HispanaButton title="YouTube" variant="text" url="https://www.youtube.com/user/congregacionhispana" />
+        <div className="p-4 flex flex-col justify-center items-center h-full">
+          <div>
+            <b>Dirección:</b> 44505 Atwater Dr Ashburn,VA 20147
+          </div>
+          <div className="p-4 flex gap-4">
+            <RiFacebookFill
+              className="cursor-pointer border-2 border-black rounded-full p-2 box-content text-[#5d31ce] hover:brightness-50"
+              size="25"
+              onClick={() =>
+                window.open("https://www.facebook.com/HispanaCFC/", "_blank")
+              }
+            />
+            <RiInstagramLine
+              className="cursor-pointer border-2 border-black rounded-full p-2 box-content text-[#5d31ce] hover:brightness-50"
+              size="25"
+              onClick={() =>
+                window.open("https://www.instagram.com/cfchispana/", "_blank")
+              }
+            />
+            <RiYoutubeLine
+              className="cursor-pointer border-2 border-black rounded-full p-2 box-content text-[#5d31ce] hover:brightness-50"
+              size="25"
+              onClick={() =>
+                window.open(
+                  "https://www.youtube.com/user/congregacionhispana",
+                  "_blank"
+                )
+              }
+            />
           </div>
         </div>
-          <FiX className="absolute top-0 right-0 mt-4 mr-4 text-white text-5xl focus:outline-none cursor-pointer" size="25" onClick={toggleMenu} />
+        <FiX
+          className="absolute top-0 right-0 mt-4 mr-4 text-white text-5xl focus:outline-none cursor-pointer"
+          size="25"
+          onClick={toggleMenu}
+        />
       </div>
     </div>
   );
