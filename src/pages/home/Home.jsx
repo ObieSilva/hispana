@@ -8,7 +8,6 @@ const Home = ({ data }) => {
   return (
     <div className="App h-full">
       <Header />
-      TEST
       <div className="container max-w-lg mx-auto">
         {pages.map(({ node }) => (
           <PageContent key={node.id} node={node} />
