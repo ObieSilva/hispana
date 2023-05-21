@@ -8,7 +8,7 @@ const SermonEmbed = ({ sermonUrl }) => {
       width="100%"
       height="450"
       allowFullScreen
-      style={{ borderRadius: '16px' }}
+      style={{ borderRadius: "16px" }}
     />
   );
 };

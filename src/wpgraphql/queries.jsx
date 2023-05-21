@@ -29,3 +29,23 @@ export const HOME_QUERIES = gql`
     }
   }
 `;
+
+export const DEFAULT_PAGE_TEMPLATE = gql`
+  query NewQuery {
+    pages {
+      edges {
+        node {
+          id
+          slug
+          title
+          content
+          featuredImage {
+            node {
+              sourceUrl
+            }
+          }
+        }
+      }
+    }
+  }
+`;

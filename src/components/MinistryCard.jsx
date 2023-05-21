@@ -13,15 +13,12 @@ const MinistryCard = ({ ministry }) => (
       className="border border-gray-300 p-4 rounded-b"
       style={{ borderColor: "#cbd5e0" }}
     >
-      <div>
-        <div className="font-bold mb-2">{ministry.title}</div>
-        <div
-          className="ministry-description"
-          dangerouslySetInnerHTML={{
-            __html: ministry.description,
-          }}
-        />
-      </div>
+      <div
+        className="ministry-description"
+        dangerouslySetInnerHTML={{
+          __html: ministry.description,
+        }}
+      />
     </div>
   </div>
 );

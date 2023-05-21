@@ -1,21 +1,31 @@
+// React imports
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
-import App from "./App";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+// GraphQL import
 import { ApolloProvider } from '@apollo/client'
 import { client } from "./client";
+
+// Styles import
+import "./index.css";
+
+// Pages import
+import App from "./App";
+import PageTemplate from "./components/PageTemplate";
 
 // React ReactToastify
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-// React Router
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+  },
+  {
+    path: "/:slug",
+    element: <PageTemplate />,
   },
 ]);
 

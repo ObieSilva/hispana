@@ -1,3 +1,4 @@
+// Components import
 import Header from "../../components/Header";
 import PageContent from "./PageContent";
 
@@ -7,7 +8,7 @@ const Home = ({ data }) => {
   return (
     <div className="App h-full">
       <Header />
-      <div className="container max-w-lg mx-auto px-4">
+      <div className="container max-w-lg mx-auto">
         {pages.map(({ node }) => (
           <PageContent key={node.id} node={node} />
         ))}

@@ -1,9 +1,9 @@
-import React from "react";
+//Components import
 import SermonEmbed from "../../components/CurrentSermon";
 import Banner from "../../components/Banner";
 import Ministries from "./Ministries";
 
-function PageContent({ node }) {
+const PageContent = ({ node }) => {
   const { title, home } = node;
   const { currentSermon, ministries, informationBanner } = home;
 
@@ -20,6 +20,6 @@ function PageContent({ node }) {
       {ministries && <Ministries ministries={ministries} />}
     </div>
   );
-}
+};
 
 export default PageContent;
