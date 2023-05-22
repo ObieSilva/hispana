@@ -1,9 +1,9 @@
+// Components import
 import { Button } from "@mui/material";
 
-const HispanaButton = ({ title, variant, bgColor, onClick, url }) => {
+const HispanaButton = ({ title, variant, backgroundColor, onClick, url }) => {
   return (
     <Button
-      className={`bg-${bgColor}`}
       variant={variant}
       size="medium"
       disableElevation
@@ -11,6 +11,10 @@ const HispanaButton = ({ title, variant, bgColor, onClick, url }) => {
       href={url}
       target={url ? "_blank" : undefined}
       rel={url ? "noopener noreferrer" : undefined}
+      sx={{
+        backgroundColor: backgroundColor,
+        padding: "8px 32px", // Adjust the padding as needed
+      }}
     >
       {title}
     </Button>
