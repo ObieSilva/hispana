@@ -28,7 +28,7 @@ const CookieConsentBar = () => {
             <p className="mr-1.5 p-0 mb-2 sm:mb-0">
               Utilizamos cookies para mejorar su experiencia de navegación,
               mostrar anuncios o contenido personalizado y analizar nuestro
-              tráfico. Al hacer clic en "X", usted acepta nuestro uso de
+              tráfico. Al hacer clic en "Aceptar", usted acepta nuestro uso de
               cookies.
               <Link to="/cookies" className="text-primary font-bold ml-1">
                 Leer Más
