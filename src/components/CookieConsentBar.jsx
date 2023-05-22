@@ -23,8 +23,7 @@ const CookieConsentBar = () => {
         <div className="fixed bottom-0 w-full bg-secondary text-main p-4 opacity-100 transition-opacity duration-300 ease-in-out">
           <div className="container max-w-lg mx-auto flex items-center justify-between px-4">
             <p className="mr-1.5 p-0">
-              Este sitio web utiliza cookies para mejorar tu experiencia. Al
-              continuar utilizando este sitio, aceptas el uso de cookies. 
+            Utilizamos cookies para mejorar su experiencia de navegación, mostrar anuncios o contenido personalizado y analizar nuestro tráfico. Al hacer clic en "X", usted acepta nuestro uso de cookies.
               <Link to="/cookies" className="text-primary font-bold ml-1">
                 Leer Más
               </Link>
