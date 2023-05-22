@@ -1,6 +1,6 @@
 // React import
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
 import { RiFacebookFill, RiInstagramLine, RiYoutubeLine } from "react-icons/ri";
 
@@ -9,13 +9,8 @@ import logo from "../assets/logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navigate = useNavigate();
 
   const toggleMenu = () => setIsMenuOpen((prevIsMenuOpen) => !prevIsMenuOpen);
-
-  const handleLogoClick = () => {
-    navigate("/");
-  };
 
   const socialMediaLinks = [
     {
@@ -35,7 +30,7 @@ const Header = () => {
   return (
     <div className="w-full">
       <nav className="container max-w-lg flex justify-between items-center mx-auto p-3 bg-main rounded-2xl px-4">
-        <Link to="/" onClick={handleLogoClick}>
+        <Link to="/">
           <img className="w-40 h-full object-contain" src={logo} alt="Logo" />
         </Link>
         <div className="flex cursor-pointer">

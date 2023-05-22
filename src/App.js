@@ -1,10 +1,16 @@
-import Home from "./pages/home/Home";
-import MapEmbed from "./components/MapEmbed";
-import Banner from "./components/Banner";
+// GraphQL import
 import { useQuery } from "@apollo/client";
 import { HOME_QUERIES } from "./wpgraphql/queries";
+
+// Pages import
+import Home from "./pages/home/Home";
+
+// Components import
+import Banner from "./components/Banner";
+import MapEmbed from "./components/MapEmbed";
 import Loading from "./components/reusable/Loading";
 import ErrorAlert from "./components/reusable/ErrorAlert";
+import CookieConsentBar from "./components/CookieConsentBar";
 
 const App = () => {
   const { loading, error, data } = useQuery(HOME_QUERIES);
@@ -29,6 +35,7 @@ const App = () => {
         <Home data={data} />
         <MapEmbed />
       </div>
+      <CookieConsentBar />
     </div>
   );
 };
