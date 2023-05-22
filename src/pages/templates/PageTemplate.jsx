@@ -3,13 +3,13 @@ import { useParams } from "react-router-dom";
 
 // GraphQL import
 import { useQuery } from "@apollo/client";
-import { DEFAULT_PAGE_TEMPLATE } from "../wpgraphql/queries";
+import { DEFAULT_PAGE_TEMPLATE } from "../../wpgraphql/queries";
 
 // Components import
-import Header from "./Header";
-import FeaturedImage from "./FeaturedImage";
-import Loading from "../components/reusable/Loading";
-import ErrorAlert from "./reusable/ErrorAlert";
+import Header from "../../components/Header";
+import FeaturedImage from "../../components/FeaturedImage";
+import Loading from "../../components/reusable/Loading";
+import ErrorAlert from "../../components/reusable/ErrorAlert";
 
 const PageTemplate = () => {
   const { slug } = useParams();

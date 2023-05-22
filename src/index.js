@@ -12,7 +12,7 @@ import "./index.css";
 
 // Pages import
 import App from "./App";
-import PageTemplate from "./components/PageTemplate";
+import PageTemplate from "./pages/templates/PageTemplate";
 
 // React ReactToastify
 import { ToastContainer } from "react-toastify";
