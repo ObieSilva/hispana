@@ -8,7 +8,7 @@ import { ApolloProvider } from '@apollo/client'
 import { client } from "./client";
 
 // Styles import
-import "./index.css";
+import "./styles/main.css"
 
 // Pages import
 import App from "./App";

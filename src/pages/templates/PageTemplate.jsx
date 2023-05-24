@@ -40,7 +40,7 @@ const PageTemplate = () => {
         />
       )}
       <div className="container max-w-lg mx-auto mt-10 px-4">
-        <h1 className="text-4xl mb-4">{title}</h1>
+        <h1>{title}</h1>
         <div dangerouslySetInnerHTML={{ __html: content }} />
       </div>
       <CookieConsentBar />

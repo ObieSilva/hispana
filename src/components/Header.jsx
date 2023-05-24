@@ -5,7 +5,7 @@ import { FiMenu, FiX } from "react-icons/fi";
 import { RiFacebookFill, RiInstagramLine, RiYoutubeLine } from "react-icons/ri";
 
 // Assets import
-import logo from "../assets/logo.png";
+import logo from "../assets/images/logo.png"
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
