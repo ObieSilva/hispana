@@ -1,5 +1,5 @@
-# Use an official Node.js runtime as the base image
-FROM node:14-alpine
+# Base image for development
+FROM node:14-alpine AS development
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -13,11 +13,26 @@ RUN npm install
 # Copy the entire project directory to the working directory
 COPY . .
 
-# Build the React app for production
-RUN npm run build
-
 # Expose the specified port
 EXPOSE 3000
 
-# Start the React app
+# Start the React app with hot-reloading enabled
 CMD ["npm", "start"]
+
+# Separate build stage for production
+FROM development AS production
+
+# Build the production version of the app
+RUN npm run build
+
+# Use a lightweight web server to serve the production build
+FROM nginx:alpine AS final
+
+# Copy the production build files to the web server's directory
+COPY --from=production /app/build /usr/share/nginx/html
+
+# Expose the specified port
+EXPOSE 80
+
+# Start the web server
+CMD ["nginx", "-g", "daemon off;"]
