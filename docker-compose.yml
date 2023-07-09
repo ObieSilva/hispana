@@ -1,11 +1,28 @@
 version: '3'
 services:
-  web:
+  hispana-dev:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: react-app
+      target: development
+    container_name: website
+    image: website
     ports:
       - '3000:3000'
     volumes:
-    - '.:/app'
+      - '.:/app'
+    env_file:
+      - .env.development
+
+  hispana-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: hispana-prod
+    ports:
+      - '80:80'
+    volumes:
+      - '.:/app'
+    env_file:
+      - .env.production

@@ -70,18 +70,26 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 ## Docker Commands
+To build the docker container, run the following command in the project directory:
+
+docker-compose build hispana-dev
 
 To start the docker container, run the following command in the project directory:
 
-`docker-compose up`
+`docker-compose up hispana-dev`
 
 To build a Docker image for development, run the following command in the project directory:
 
-`docker build -t your-image-name .`
+`docker build -t IMAGE_NAME .`
 
+NOTE: After building a new development image docker-compose.yml must be updated.
 
 To build a Docker image for production, run the following command in the project directory:
 
-`docker build -t your-image-name:production --target production .`
+`./docker_build.sh IMAGE_NAME` 
 
-Replace `your-image-name` with the desired name for your Docker image. These commands will build the Docker image for your React app, based on the provided Dockerfile.
+or 
+
+`docker build -t IMAGE_NAME:production --target production .`
+
+Replace `IMAGE_NAME` with the desired name for your Docker image. These commands will build the Docker image for your React app, based on the provided Dockerfile.
