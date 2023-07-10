@@ -1,5 +1,12 @@
 #!/bin/bash
 
-IMAGE_NAME=$1
+IMAGE_NAME="$1"
 
-docker-compose build --build-arg IMAGE_TAG=$IMAGE_NAME hispana-prod
+# Verify that the image name is provided
+if [ -z "$IMAGE_NAME" ]; then
+  echo "Please provide an image name."
+  exit 1
+fi
+
+# Build the Docker image using the provided image name and disable caching
+docker build --no-cache -t "eutell/hispana:${IMAGE_NAME}" --target production .

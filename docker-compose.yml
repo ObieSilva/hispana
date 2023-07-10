@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
       target: development
     container_name: website
-    image: website
+    image: website:latest
     ports:
       - '3000:3000'
     volumes:
@@ -19,7 +19,6 @@ services:
       context: .
       dockerfile: Dockerfile
       target: production
-    container_name: hispana-prod
     ports:
       - '80:80'
     volumes:

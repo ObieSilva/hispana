@@ -24,13 +24,13 @@ const App = () => {
 
   return (
     <div className="App h-full">
-      {topBanner?.displayBanner && (
+      {/* {topBanner?.displayBanner && (
         <Banner
           information={topBanner.information}
           displayBanner={topBanner.displayBanner}
           bannerType="topBanner"
         />
-      )}
+      )} */}
       <div className="container max-w-lg mx-auto px-4">
         <Home data={data} />
         <MapEmbed />

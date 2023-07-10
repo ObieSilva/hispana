@@ -80,16 +80,28 @@ To start the docker container, run the following command in the project director
 
 To build a Docker image for development, run the following command in the project directory:
 
-`docker build -t IMAGE_NAME .`
+`docker build -t image_name .`
 
 NOTE: After building a new development image docker-compose.yml must be updated.
 
 To build a Docker image for production, run the following command in the project directory:
 
-`./docker_build.sh IMAGE_NAME` 
+`./docker_build.sh image_name` 
 
 or 
 
-`docker build -t IMAGE_NAME:production --target production .`
+`docker build -t image_name:production --target production .`
 
-Replace `IMAGE_NAME` with the desired name for your Docker image. These commands will build the Docker image for your React app, based on the provided Dockerfile.
+To push a production image to dockerhub, run the following command in the project directory:
+
+`docker push dockerhub_username/hispana:image_name`
+
+To remove a image, run the following command in the project directory:
+
+`docker rmi image_id`
+
+To remove Docker cache, run the following command in the project directory:
+
+`docker system prune -a --volumes`
+
+Replace `image_name` with the desired name for your Docker image. These commands will build the Docker image for your React app, based on the provided Dockerfile.
