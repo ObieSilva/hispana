@@ -10,7 +10,7 @@ const Home = ({ data }) => {
       <Header />
       <div className="container max-w-lg mx-auto">
         {pages.map(({ node }) => (
-          <PageContent key={node.id} node={node} />
+          <PageContent key={node.title} node={node} />
         ))}
       </div>
     </div>
