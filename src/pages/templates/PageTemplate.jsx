@@ -1,5 +1,7 @@
 // React import
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import ReactGA from 'react-ga';
 
 // GraphQL import
 import { useQuery } from "@apollo/client";
@@ -15,6 +17,11 @@ import CookieConsentBar from "../../components/CookieConsentBar";
 const PageTemplate = () => {
   const { slug } = useParams();
   const { loading, error, data } = useQuery(DEFAULT_PAGE_TEMPLATE);
+
+  // Google Analytics
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname);
+  }, []);
 
   if (loading) return <Loading />;
   if (error) return <ErrorAlert error={error} />;
