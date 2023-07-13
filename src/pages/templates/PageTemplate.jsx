@@ -1,5 +1,6 @@
 // React import
 import { useParams } from "react-router-dom";
+import ReactGA from 'react-ga';
 
 // GraphQL import
 import { useQuery } from "@apollo/client";
@@ -27,6 +28,11 @@ const PageTemplate = () => {
   }
 
   const { title, content, featuredImage } = page.node;
+
+  // Google Analytics
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname);
+  }, []);
 
   return (
     <>

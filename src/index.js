@@ -13,6 +13,7 @@ import "./styles/main.css"
 // Pages import
 import App from "./App";
 import PageTemplate from "./pages/templates/PageTemplate";
+import ReactGA from 'react-ga';
 
 // React ReactToastify
 import { ToastContainer } from "react-toastify";
@@ -28,6 +29,8 @@ const router = createBrowserRouter([
     element: <PageTemplate />,
   },
 ]);
+
+ReactGA.initialize('G-7TB212BN10');
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
