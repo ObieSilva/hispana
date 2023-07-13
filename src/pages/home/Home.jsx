@@ -1,4 +1,5 @@
 // Components import
+import { useEffect } from "react";
 import Header from "../../components/Header";
 import PageContent from "./PageContent";
 import ReactGA from 'react-ga';
