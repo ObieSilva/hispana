@@ -6,6 +6,7 @@ import { RiFacebookFill, RiInstagramLine, RiYoutubeLine } from "react-icons/ri";
 
 // Assets import
 import logo from "../assets/images/logo.png"
+import MainMenu from "./MainMenu";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -51,6 +52,7 @@ const Header = () => {
         }`}
       >
         <div className="p-4 flex flex-col justify-center items-center h-full">
+          <MainMenu />
           <div>
             <b>Dirección:</b> 44505 Atwater Dr Ashburn, VA 20147
           </div>

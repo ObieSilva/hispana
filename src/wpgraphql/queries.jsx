@@ -49,3 +49,21 @@ export const DEFAULT_PAGE_TEMPLATE = gql`
     }
   }
 `;
+
+export const MAIN_MENU = gql`
+  query {
+    menus {
+      nodes {
+        name
+        menuItems {
+          edges {
+            node {
+              label
+              uri
+            }
+          }
+        }
+      }
+    }
+  }
+`;
