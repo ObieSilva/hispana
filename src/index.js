@@ -30,7 +30,8 @@ const router = createBrowserRouter([
   },
 ]);
 
-ReactGA.initialize('G-7TB212BN10');
+ReactGA.initialize('G-C9RS4F5SHD');
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

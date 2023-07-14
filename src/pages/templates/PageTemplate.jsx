@@ -21,7 +21,7 @@ const PageTemplate = () => {
   // Google Analytics
   useEffect(() => {
     ReactGA.pageview(window.location.pathname);
-  }, []);
+  }, [slug]);
 
   if (loading) return <Loading />;
   if (error) return <ErrorAlert error={error} />;
