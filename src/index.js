@@ -13,11 +13,19 @@ import "./styles/main.css"
 // Pages import
 import App from "./App";
 import PageTemplate from "./pages/templates/PageTemplate";
-import ReactGA from 'react-ga';
 
 // React ReactToastify
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+// Google Tag Manager
+import TagManager from 'react-gtm-module';
+
+const tagManagerArgs = {
+  gtmId: 'GTM-T4X94KB',
+};
+
+TagManager.initialize(tagManagerArgs);
 
 const router = createBrowserRouter([
   {
@@ -29,9 +37,6 @@ const router = createBrowserRouter([
     element: <PageTemplate />,
   },
 ]);
-
-ReactGA.initialize('G-C9RS4F5SHD');
-ReactGA.pageview(window.location.pathname + window.location.search);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

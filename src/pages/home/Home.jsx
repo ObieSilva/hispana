@@ -1,16 +1,9 @@
 // Components import
-import { useEffect } from "react";
 import Header from "../../components/Header";
 import PageContent from "./PageContent";
-import ReactGA from 'react-ga';
 
 const Home = ({ data }) => {
   const pages = data?.pages?.edges || [];
-
-  // Google Analytics
-  useEffect(() => {
-    ReactGA.pageview(window.location.pathname);
-  }, []);
 
   return (
     <div className="App h-full">
