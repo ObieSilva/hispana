@@ -1,7 +1,7 @@
 // React import
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { FiMenu, FiX } from "react-icons/fi";
+import { FiX } from "react-icons/fi";
 import { RiFacebookFill, RiInstagramLine, RiYoutubeLine } from "react-icons/ri";
 
 // Assets import
@@ -34,8 +34,8 @@ const Header = () => {
         <Link to="/">
           <img className="w-40 h-full object-contain" src={logo} alt="Logo" />
         </Link>
-        <div className="flex cursor-pointer">
-          <FiMenu size="25" onClick={toggleMenu} />
+        <div className="flex cursor-pointer font-bold" onClick={toggleMenu}>
+          MENU
         </div>
       </nav>
       <div
