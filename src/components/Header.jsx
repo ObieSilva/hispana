@@ -16,15 +16,15 @@ const Header = () => {
   const socialMediaLinks = [
     {
       icon: RiFacebookFill,
-      url: "https://www.facebook.com/HispanaCFC/",
+      url: "https://www.facebook.com/hispanacfc/",
     },
     {
       icon: RiInstagramLine,
-      url: "https://www.instagram.com/cfchispana/",
+      url: "https://www.instagram.com/hispanacfc/",
     },
     {
       icon: RiYoutubeLine,
-      url: "https://www.youtube.com/user/congregacionhispana",
+      url: "https://www.youtube.com/user/hispanacfc",
     },
   ];
 
