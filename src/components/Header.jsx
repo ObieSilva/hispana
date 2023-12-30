@@ -24,7 +24,7 @@ const Header = () => {
     },
     {
       icon: RiYoutubeLine,
-      url: "https://www.youtube.com/user/hispanacfc",
+      url: "https://www.youtube.com/@hispanacfc",
     },
   ];
 
