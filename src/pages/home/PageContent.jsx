@@ -17,7 +17,7 @@ const PageContent = ({ node }) => {
           bannerType="informationBanner"
         />
       )}
-      {ministries && <Ministries ministries={ministries} />}
+      {/* {ministries && <Ministries ministries={ministries} />} */}
     </div>
   );
 };

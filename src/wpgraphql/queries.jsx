@@ -23,6 +23,7 @@ export const HOME_QUERIES = gql`
               displayBanner
               information
             }
+            upComingEvent
           }
         }
       }
