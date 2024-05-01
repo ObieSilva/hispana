@@ -23,7 +23,17 @@ export const HOME_QUERIES = gql`
               displayBanner
               information
             }
-            upComingEvent
+            eventDetails {
+              eventDate
+              eventLocation
+              eventPage {
+                ... on Page {
+                  id
+                  uri
+                  title
+                }
+              }
+            }
           }
         }
       }

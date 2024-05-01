@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineReload } from "react-icons/ai";
 import { IoLocationOutline } from "react-icons/io5";
+import moment from "moment";
 
 // Components import
 import HispanaButton from "./reusable/HispanaButton";
 
-const UpcomingEvent = ({ targetDate, borderColor = "#cbd5e0" }) => {
+const UpcomingEvent = ({ eventLocation, eventPageUri, eventDate, eventTitle, borderColor = "#cbd5e0", }) => {
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -17,7 +18,7 @@ const UpcomingEvent = ({ targetDate, borderColor = "#cbd5e0" }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       const now = new Date();
-      const difference = targetDate - now;
+      const difference = new Date(eventDate) - now;
 
       const days = Math.floor(difference / (1000 * 60 * 60 * 24));
       const hours = Math.floor(
@@ -35,15 +36,21 @@ const UpcomingEvent = ({ targetDate, borderColor = "#cbd5e0" }) => {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [targetDate]);
+  }, [eventDate]);
+
+  // Format the eventDate using moment.js
+  const formattedDate = moment(eventDate).format("D"); // Day of the month as a number
+  const formattedMonth = moment(eventDate).format("MMM"); // Month as a three-letter abbreviation
 
   return (
     <div className="countdown mt-4 border-b" style={{ borderColor }}>
       <div className="flex flex-wrap lg:flex-nowrap container max-w-lg mx-auto px-4 lg:px-0 lg:items-center gap-4 lg:gap-0">
         <div className="flex flex-wrap-reverse lg:flex-nowrap w-full">
           <div className="bg-[#007f7b] text-[#ffffff] px-2.5 flex flex-wrap content-center basis-24 justify-center flex-col items-center">
-            <span className="font-bold text-4xl leading-none">20</span>
-            <span className="text-sm">MAY</span>
+            <span className="font-bold text-4xl leading-none">
+              {formattedDate}
+            </span>
+            <span className="text-sm">{formattedMonth.toUpperCase()}</span>
           </div>
           <div
             className="border lg:border-r-0 grow py-4 px-6"
@@ -54,13 +61,13 @@ const UpcomingEvent = ({ targetDate, borderColor = "#cbd5e0" }) => {
               <span className="text-sm">PRÓXIMO EVENTO</span>
             </div>
             <div>
-              <div className="flex items-center gap-1">
-                <span>Service of Celebration</span>
+              <div className="flex items-center gap-1 text-[#9b9b9b] text-lg font-medium">
+              <Link to={eventPageUri}>{eventTitle}</Link>
                 <AiOutlineReload />
               </div>
               <div className="flex items-center gap-1">
                 <IoLocationOutline />
-                <span className="text-[#9b9b9b] text-sm">Location</span>
+                <span className="text-[#9b9b9b] text-sm">{eventLocation}</span>
               </div>
             </div>
           </div>

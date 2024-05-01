@@ -15,15 +15,18 @@ import FeatureBlock from "./pages/home/FeatureBlock";
 import UpcomingEvent from "./components/UpcomingEvent";
 
 // Assets import
-import familyImage from "./assets/images/family.svg"
-import calendar from "./assets/images/calendar.svg"
-import ministries from "./assets/images/ministries.svg"
+import familyImage from "./assets/images/family.svg";
+import calendar from "./assets/images/calendar.svg";
+import ministries from "./assets/images/ministries.svg";
 
 const App = () => {
   const { loading, error, data } = useQuery(HOME_QUERIES);
-  const upcomingEventDate = data?.pages?.edges.find(edge => edge.node.home.upComingEvent !== null)?.node.home.upComingEvent;
-  const eventDate = upcomingEventDate ? new Date(upcomingEventDate) : null;
-  
+  const upcomingEventDetails = data?.pages?.edges.map((edge) => edge.node.home.eventDetails).find((details) => details && details.eventDate !== null);
+  const eventDate = upcomingEventDetails ? new Date(upcomingEventDetails.eventDate) : null;
+  const eventLocation = upcomingEventDetails ? upcomingEventDetails.eventLocation : "Location not specified";
+  const eventPageUri = upcomingEventDetails && upcomingEventDetails.eventPage ? upcomingEventDetails.eventPage.uri : "#";
+  const eventTitle = upcomingEventDetails?.eventPage ? upcomingEventDetails.eventPage.title : 'Upcoming Event';
+
   if (loading) return <Loading />;
   if (error) return <ErrorAlert error={error} />;
 
@@ -42,10 +45,12 @@ const App = () => {
       )}
       <div>
         <Home data={data} />
-        <UpcomingEvent targetDate={eventDate}/>
+        <UpcomingEvent eventDate={eventDate} eventLocation={eventLocation} eventPageUri={eventPageUri} eventTitle={eventTitle}/>
         <div className="container max-w-lg mx-auto px-4 lg:px-0">
           <span className="block font-bold text-xl text-center pt-12 pb-2">
-              En Hispana creemos que la salvación es el mayor tesoro del hombre y se logra por gracia mediante la fe en Jesucristo, a quien todos los hombres deben acercarse en arrepentimiento.
+            En Hispana creemos que la salvación es el mayor tesoro del hombre y
+            se logra por gracia mediante la fe en Jesucristo, a quien todos los
+            hombres deben acercarse en arrepentimiento.
           </span>
           <div className="grid gap-1 md:grid-cols-2 lg:grid-cols-3 mt-4">
             <FeatureBlock
