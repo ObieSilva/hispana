@@ -43,7 +43,7 @@ const UpcomingEvent = ({ eventLocation, eventPageUri, eventDate, eventTitle, bor
   const formattedMonth = moment(eventDate).format("MMM"); // Month as a three-letter abbreviation
 
   return (
-    <div className="countdown mt-4 border-b" style={{ borderColor }}>
+    <div className="border-b" style={{ borderColor }}>
       <div className="flex flex-wrap lg:flex-nowrap container max-w-lg mx-auto px-4 lg:px-0 lg:items-center gap-4 lg:gap-0">
         <div className="flex flex-wrap-reverse lg:flex-nowrap w-full">
           <div className="bg-[#007f7b] text-[#ffffff] px-2.5 flex flex-wrap content-center basis-24 justify-center flex-col items-center">

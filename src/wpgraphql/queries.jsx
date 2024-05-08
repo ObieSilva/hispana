@@ -34,6 +34,26 @@ export const HOME_QUERIES = gql`
                 }
               }
             }
+            heroSlides {
+              content {
+                button {
+                  ... on Page {
+                    id
+                    uri
+                  }
+                }
+                header
+                paragraph
+                tag
+              }
+              image {
+                sourceUrl
+              }
+              imageTools {
+                gradient
+                position
+              }
+            }
           }
         }
       }
