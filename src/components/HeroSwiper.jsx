@@ -38,13 +38,14 @@ const HeroSwiper = ({ heroSlides }) => {
 
           return (
             <SwiperSlide key={index} style={backgroundStyles}>
-              <div className="slide-content z-50">
+              <div className="slide-content">
                 {slide.content && (
-                  <>
-                    <h2>{slide.content.header}</h2>
-                    <p>{slide.content.paragraph}</p>
+                  <div className="container max-w-lg mx-auto text-left mt-20">
+                    <p className="text-[#ffffff] uppercase font-medium">{slide.content.tag}</p>
+                    <h2 className="text-[#ffffff] text-[52px] uppercase font-semibold">{slide.content.header}</h2>
+                    <p className="text-[#ffffff] w-2/4 text-[15px]">{slide.content.paragraph}</p>
                     <a href={slide.content.button?.uri}>Learn More</a>
-                  </>
+                  </div>
                 )}
               </div>
             </SwiperSlide>

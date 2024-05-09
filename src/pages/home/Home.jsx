@@ -21,7 +21,7 @@ const Home = ({ data }) => {
   return (
     <div className="App h-full">
       <Header />
-      <div className="">
+      <div>
         <HeroSwiper heroSlides={heroSlides} />
         <UpcomingEvent
           eventDate={eventDate}
@@ -29,36 +29,38 @@ const Home = ({ data }) => {
           eventPageUri={eventPageUri}
           eventTitle={eventTitle}
         />
-        <div className="container max-w-lg mx-auto">
+        <div>
           {pages.map(({ node }) => (
             <PageContent key={node.title} node={node} />
           ))}
-          <div className="container max-w-lg mx-auto px-4 lg:px-0">
-            <span className="block font-bold text-xl text-center pt-12 pb-2">
-              En Hispana creemos que la salvación es el mayor tesoro del hombre
-              y se logra por gracia mediante la fe en Jesucristo, a quien todos
-              los hombres deben acercarse en arrepentimiento.
-            </span>
-            <div className="grid gap-1 md:grid-cols-2 lg:grid-cols-3 mt-4">
-              <FeatureBlock
-                linkTo="/creencias"
-                title="Nuestras creencias"
-                imageSrc={familyImage}
-                content="El amor es un atributo clave en el cristianismo. El amor de Dios es un concepto prevalente tanto en el Antiguo Testamento como en el Nuevo Testamento."
-                hoverBackground="#000"
-              />
-              <FeatureBlock
-                linkTo="/visita"
-                title="Planear una Visita"
-                imageSrc={calendar}
-                content="Planear una visita a nuestra iglesia es un paso hacia una experiencia espiritual y acogedora. Te invitamos a explorar nuestras actividades y unirte a nuestra comunidad de fe y esperanza."
-              />
-              <FeatureBlock
-                linkTo="/ministerios"
-                title="Ministerios"
-                imageSrc={ministries}
-                content="El amor es un atributo clave en el cristianismo. El amor de Dios es un concepto prevalente tanto en el Antiguo Testamento como en el Nuevo Testamento."
-              />
+          <div className="bg-[#f5f5f5] py-16">
+            <div className="container max-w-lg mx-auto px-4 lg:px-0">
+              <span className="block font-bold text-xl text-center pb-2">
+                En Hispana creemos que la salvación es el mayor tesoro del hombre
+                y se logra por gracia mediante la fe en Jesucristo, a quien todos
+                los hombres deben acercarse en arrepentimiento.
+              </span>
+              <div className="grid gap-1 md:grid-cols-2 lg:grid-cols-3 mt-4">
+                <FeatureBlock
+                  linkTo="/creencias"
+                  title="Nuestras creencias"
+                  imageSrc={familyImage}
+                  content="El amor es un atributo clave en el cristianismo. El amor de Dios es un concepto prevalente tanto en el Antiguo Testamento como en el Nuevo Testamento."
+                  hoverBackground="#000"
+                />
+                <FeatureBlock
+                  linkTo="/visita"
+                  title="Planear una Visita"
+                  imageSrc={calendar}
+                  content="Planear una visita a nuestra iglesia es un paso hacia una experiencia espiritual y acogedora. Te invitamos a explorar nuestras actividades y unirte a nuestra comunidad de fe y esperanza."
+                />
+                <FeatureBlock
+                  linkTo="/ministerios"
+                  title="Ministerios"
+                  imageSrc={ministries}
+                  content="El amor es un atributo clave en el cristianismo. El amor de Dios es un concepto prevalente tanto en el Antiguo Testamento como en el Nuevo Testamento."
+                />
+              </div>
             </div>
           </div>
         </div>

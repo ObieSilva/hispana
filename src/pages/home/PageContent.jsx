@@ -6,7 +6,7 @@ const PageContent = ({ node }) => {
   const { informationBanner } = home;
 
   return (
-    <div>
+    <div className="container max-w-lg mx-auto">
       <div key={title}>
         {informationBanner?.displayBanner && (
           <Banner

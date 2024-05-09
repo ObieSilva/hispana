@@ -17,7 +17,7 @@ const Banner = ({ information, displayBanner, bannerType }) => {
     );
   } else if (bannerType === "informationBanner") {
     bannerUI = (
-      <div className="information-banner bg-[#f5f5f5] p-4 border border-[#cbd5e0] rounded-md text-black flex gap-2 mt-4">
+      <div className="information-banner bg-[#f5f5f5] p-4 border border-[#cbd5e0] rounded-md text-black flex gap-2 mt-4 mb-16">
         <div>
           <FiInfo size="25" />
         </div>
