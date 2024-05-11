@@ -33,14 +33,10 @@ const Home = ({ data }) => {
           {pages.map(({ node }) => (
             <PageContent key={node.title} node={node} />
           ))}
-          <div className="bg-[#f5f5f5] py-16">
+          <div className="bg-lightShade py-32 border-y border-borderColor">
             <div className="container max-w-lg mx-auto px-4 lg:px-0">
-              <span className="block font-bold text-xl text-center pb-2">
-                En Hispana creemos que la salvación es el mayor tesoro del hombre
-                y se logra por gracia mediante la fe en Jesucristo, a quien todos
-                los hombres deben acercarse en arrepentimiento.
-              </span>
-              <div className="grid gap-1 md:grid-cols-2 lg:grid-cols-3 mt-4">
+              <span className="block font-bold text-4xl text-center pb-8">PIENSAS VISITARNOS?</span>
+              <div className="grid gap-1 md:grid-cols-2 lg:grid-cols-3 mt-4 bg-[#ffffff]">
                 <FeatureBlock
                   linkTo="/creencias"
                   title="Nuestras creencias"

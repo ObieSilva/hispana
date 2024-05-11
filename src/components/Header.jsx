@@ -30,7 +30,7 @@ const Header = () => {
 
   return (
     <div className="w-full">
-      <nav className="container max-w-lg flex justify-between items-center mx-auto p-3 bg-main rounded-2xl px-4">
+      <nav className="container max-w-lg flex justify-between items-center mx-auto p-3 rounded-2xl px-4">
         <Link to="/">
           <img className="w-40 h-full object-contain" src={logo} alt="Logo" />
         </Link>
@@ -47,7 +47,7 @@ const Header = () => {
         onClick={toggleMenu}
       ></div>
       <div
-        className={`fixed top-0 right-0 h-full w-full sm:w-full lg:w-[400px] bg-main transition-transform duration-300 ease-in-out transform ${
+        className={`fixed top-0 right-0 h-full w-full sm:w-full lg:w-[400px] bg-[#ffffff] transition-transform duration-300 ease-in-out transform ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -60,7 +60,7 @@ const Header = () => {
             {socialMediaLinks.map(({ icon: Icon, url }) => (
               <Icon
                 key={url}
-                className="cursor-pointer border-2 border-black rounded-full p-2 box-content text-[#5d31ce] hover:brightness-50"
+                className="cursor-pointer border-2 border-black rounded-full p-2 box-content text-main hover:brightness-50"
                 size="25"
                 onClick={() => window.open(url, "_blank")}
               />

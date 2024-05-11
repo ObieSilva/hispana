@@ -11,15 +11,15 @@ const Banner = ({ information, displayBanner, bannerType }) => {
 
   if (bannerType === "topBanner") {
     bannerUI = (
-      <div className="top-banner bg-[#5d31ce] text-[#ffffff] text-center font-medium py-3">
+      <div className="top-banner bg-main text-white text-center font-medium py-3">
         <div dangerouslySetInnerHTML={{ __html: information }} />
       </div>
     );
   } else if (bannerType === "informationBanner") {
     bannerUI = (
-      <div className="information-banner bg-[#f5f5f5] p-4 border border-[#cbd5e0] rounded-md text-black flex gap-2 mt-4 mb-16">
+      <div className="information-banner bg-darkShade p-4 border-accent border-2 rounded-md text-white flex gap-2 my-16">
         <div>
-          <FiInfo size="25" />
+          <FiInfo size="25" className="text-accent"/>
         </div>
         <div dangerouslySetInnerHTML={{ __html: information }} />
       </div>

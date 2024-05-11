@@ -17,15 +17,18 @@ module.exports = {
     },
     colors: {
       // background, main elements
-      'main': '#ffffff',
+      'main': '#5d31ce',
       // headers, text, icons
       secondary: '#000000',
       // call to actions
       accent: '#c13636',
       // others
       error: '#cc0000',
-      darkShade: '#5d31ce',
-      lightShade: '#f5f5f5',
+      lightShade: '#f9fbff',
+      darkShade: '#d79f23',
+      borderColor: '#cbd5e0',
+      white: '#ffffff',
+      lightText: '#94a3b8',
     },
     fontFamily: {
       sans: ['IBM Plex Sans', 'sans-serif'],

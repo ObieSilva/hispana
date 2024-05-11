@@ -7,7 +7,7 @@ const FeatureBlock = ({ linkTo, title, imageSrc, content, borderColor = "#cbd5e0
       <div className="feature-card flex flex-col flex-grow">
         <div className="card-header border" style={{ borderColor }}>
           <Link
-            to={linkTo} className={`w-full h-full flex items-center p-5 justify-between font-bold hover:bg-[#454656] transition-all duration-200 ease-in hover:text-[#ffffff]`}
+            to={linkTo} className={`w-full h-full flex items-center p-5 justify-between font-bold hover:bg-main transition-all duration-200 ease-in hover:text-[#ffffff]`}
           >
             {title} <CiCircleChevRight />
           </Link>

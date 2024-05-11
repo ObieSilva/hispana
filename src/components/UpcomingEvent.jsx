@@ -43,25 +43,22 @@ const UpcomingEvent = ({ eventLocation, eventPageUri, eventDate, eventTitle, bor
   const formattedMonth = moment(eventDate).format("MMM"); // Month as a three-letter abbreviation
 
   return (
-    <div className="border-b" style={{ borderColor }}>
+    <div className="border-b border-borderColor">
       <div className="flex flex-wrap lg:flex-nowrap container max-w-lg mx-auto px-4 lg:px-0 lg:items-center gap-4 lg:gap-0">
         <div className="flex flex-wrap-reverse lg:flex-nowrap w-full">
-          <div className="bg-[#007f7b] text-[#ffffff] px-2.5 flex flex-wrap content-center basis-24 justify-center flex-col items-center">
+          <div className="bg-main text-[#ffffff] px-2.5 flex flex-wrap content-center basis-24 justify-center flex-col items-center">
             <span className="font-bold text-4xl leading-none">
               {formattedDate}
             </span>
             <span className="text-sm">{formattedMonth.toUpperCase()}</span>
           </div>
-          <div
-            className="border lg:border-r-0 grow py-4 px-6"
-            style={{ borderColor }}
-          >
+          <div className="border border-b-0 lg:border-r-0 grow py-4 px-6 border-borderColor">
             <div className="flex flex-col mb-4">
-              <span className="text-[#cbd5e0] small">SIGUIENTE</span>
+              <span className="text-borderColor small">SIGUIENTE</span>
               <span className="text-sm">PRÓXIMO EVENTO</span>
             </div>
             <div>
-              <div className="flex items-center gap-1 text-[#9b9b9b] text-lg font-medium">
+              <div className="flex items-center gap-1 text-black text-lg font-medium">
               <Link to={eventPageUri}>{eventTitle}</Link>
                 <AiOutlineReload />
               </div>
@@ -72,49 +69,37 @@ const UpcomingEvent = ({ eventLocation, eventPageUri, eventDate, eventTitle, bor
             </div>
           </div>
           <div className="flex basis-full lg:basis-auto grow-[6] min-h-[100px]">
-            <div
-              className="border border-r-0 flex flex-grow flex-col items-center justify-center"
-              style={{ borderColor }}
-            >
-              <span className="text-2xl font-extrabold leading-none text-[#007f7b]">
+            <div className="border border-r-0 border-b-0 flex flex-grow flex-col items-center justify-center border-borderColor">
+              <span className="text-2xl font-extrabold leading-none text-lightText">
                 {timeLeft.days}
               </span>
-              <span className="text-[#cbd5e0] small">DAYS</span>
+              <span className="text-borderColor small">DIAS</span>
             </div>
-            <div
-              className="border border-r-0 flex flex-grow flex-col items-center justify-center"
-              style={{ borderColor }}
-            >
-              <span className="text-2xl font-extrabold leading-none text-[#007f7b]">
+            <div className="border border-r-0 border-b-0 border-borderColor flex flex-grow flex-col items-center justify-center">
+              <span className="text-2xl font-extrabold leading-none text-lightText">
                 {timeLeft.hours}
               </span>
-              <span className="text-[#cbd5e0] small">HR</span>
+              <span className="text-borderColor small">HR</span>
             </div>
-            <div
-              className="border border-r-0 flex flex-grow flex-col items-center justify-center"
-              style={{ borderColor }}
-            >
-              <span className="text-2xl font-extrabold leading-none text-[#007f7b]">
+            <div className="border border-r-0 border-b-0 border-borderColor flex flex-grow flex-col items-center justify-center">
+              <span className="text-2xl font-extrabold leading-none text-lightText">
                 {timeLeft.minutes}
               </span>
-              <span className="text-[#cbd5e0] small">MIN</span>
+              <span className="text-borderColor small">MIN</span>
             </div>
-            <div
-              className="border lg:border-r-0 flex flex-grow flex-col items-center justify-center"
-              style={{ borderColor }}
-            >
-              <span className="text-2xl font-extrabold leading-none text-[#007f7b]">
+            <div className="border border-b-0 border-borderColor lg:border-r-0 flex flex-grow flex-col items-center justify-center">
+              <span className="text-2xl font-extrabold leading-none text-lightText">
                 {timeLeft.seconds}
               </span>
-              <span className="text-[#cbd5e0] small">SEC</span>
+              <span className="text-borderColor small">SEG</span>
             </div>
           </div>
         </div>
-        <div className="w-full lg:w-[175px]">
+        <div className="w-full lg:w-[175px] hover:text-[#000]">
           <HispanaButton
             sx={{ width: "100%", padding: "8px" }}
             title="Mas Eventos"
-            backgroundColor="#5d31ce"
+            backgroundColor="#c13636"
             variant="contained"
           />
         </div>
