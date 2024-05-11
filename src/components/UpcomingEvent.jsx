@@ -43,8 +43,8 @@ const UpcomingEvent = ({ eventLocation, eventPageUri, eventDate, eventTitle, bor
   const formattedMonth = moment(eventDate).format("MMM"); // Month as a three-letter abbreviation
 
   return (
-    <div className="border-b border-borderColor">
-      <div className="flex flex-wrap lg:flex-nowrap container max-w-lg mx-auto px-4 lg:px-0 lg:items-center gap-4 lg:gap-0">
+    <div className="lg:border-b border-borderColor">
+      <div className="flex flex-wrap lg:flex-nowrap container max-w-lg mx-auto p-4 lg:p-0 lg:items-center gap-4 lg:gap-0">
         <div className="flex flex-wrap-reverse lg:flex-nowrap w-full">
           <div className="bg-main text-[#ffffff] px-2.5 flex flex-wrap content-center basis-24 justify-center flex-col items-center">
             <span className="font-bold text-4xl leading-none">
@@ -52,7 +52,7 @@ const UpcomingEvent = ({ eventLocation, eventPageUri, eventDate, eventTitle, bor
             </span>
             <span className="text-sm">{formattedMonth.toUpperCase()}</span>
           </div>
-          <div className="border border-b-0 lg:border-r-0 grow py-4 px-6 border-borderColor">
+          <div className="border lg:border-b-0 lg:border-r-0 grow py-4 px-6 border-borderColor">
             <div className="flex flex-col mb-4">
               <span className="text-borderColor small">SIGUIENTE</span>
               <span className="text-sm">PRÓXIMO EVENTO</span>

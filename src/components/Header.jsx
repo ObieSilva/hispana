@@ -39,7 +39,7 @@ const Header = () => {
         </div>
       </nav>
       <div
-        className={`fixed top-0 left-0 w-full h-full bg-[#000000] bg-opacity-80 transition-opacity duration-300 ${
+        className={`fixed top-0 left-0 w-full h-full bg-[#000000] bg-opacity-80 z-50 transition-opacity duration-300 ${
           isMenuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -47,7 +47,7 @@ const Header = () => {
         onClick={toggleMenu}
       ></div>
       <div
-        className={`fixed top-0 right-0 h-full w-full sm:w-full lg:w-[400px] bg-[#ffffff] transition-transform duration-300 ease-in-out transform ${
+        className={`fixed top-0 right-0 h-full w-full sm:w-full lg:w-[400px] bg-[#ffffff] z-50 transition-transform duration-300 ease-in-out transform ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >

@@ -28,6 +28,7 @@ module.exports = {
       darkShade: '#d79f23',
       borderColor: '#cbd5e0',
       white: '#ffffff',
+      black: '#000000',
       lightText: '#94a3b8',
     },
     fontFamily: {

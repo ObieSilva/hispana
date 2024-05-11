@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper/modules";
+import { Link } from "react-router-dom";
 
 const HeroSwiper = ({ heroSlides }) => {
   const progressCircle = useRef(null);
@@ -38,13 +39,13 @@ const HeroSwiper = ({ heroSlides }) => {
 
           return (
             <SwiperSlide key={index} style={backgroundStyles}>
-              <div className="slide-content">
+              <div className="slide-content flex items-center h-full p-4">
                 {slide.content && (
-                  <div className="container max-w-lg mx-auto text-left mt-20">
-                    <p className="text-[#ffffff] uppercase font-medium">{slide.content.tag}</p>
-                    <h2 className="text-[#ffffff] text-[52px] uppercase font-semibold">{slide.content.header}</h2>
-                    <p className="text-[#ffffff] w-2/4 text-[15px]">{slide.content.paragraph}</p>
-                    <a href={slide.content.button?.uri}>Learn More</a>
+                  <div className="container max-w-lg mx-auto text-left">
+                    <p className="text-white uppercase tracking-widest pb-2">{slide.content.tag}</p>
+                    <h2 className="text-white text-[52px] uppercase font-semibold tracking-wide mb-4">{slide.content.header}</h2>
+                    <p className="text-white w-9/12 text-[15px] mb-6">{slide.content.paragraph}</p>
+                    <Link to={slide.content.button?.uri} className="text-white border border-white p-4 rounded-md hover:bg-white hover:text-black opacity-100 transition-opacity duration-300 ease-in-out">Learn More</Link>
                   </div>
                 )}
               </div>
