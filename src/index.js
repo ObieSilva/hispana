@@ -13,6 +13,7 @@ import "./styles/main.css"
 // Pages import
 import App from "./App";
 import PageTemplate from "./pages/templates/PageTemplate";
+import UserList from "./pages/UserList";
 
 // React ReactToastify
 import { ToastContainer } from "react-toastify";
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
     path: "/:slug",
     element: <PageTemplate />,
   },
+  {
+    path: "/users",
+    element: <UserList />
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
