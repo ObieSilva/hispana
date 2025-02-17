@@ -1,7 +1,8 @@
 // React import
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { FiX, FiMenu, FiInfo } from "react-icons/fi";
+import { FiX, FiMenu } from "react-icons/fi";
+import { MdNotificationImportant } from "react-icons/md";
 import { RiFacebookFill, RiInstagramLine, RiYoutubeLine } from "react-icons/ri";
 import PropTypes from "prop-types";
 
@@ -34,7 +35,7 @@ const Header = () => {
   ];
 
   return (
-    <div className="w-full">
+    <div className="w-full p-2">
       <nav className="container max-w-lg flex justify-between items-center mx-auto p-3 rounded-2xl px-4">
         <Link to="/">
           <img className="w-40 h-full object-contain" src={logo} alt="Logo" />
@@ -55,9 +56,9 @@ const Header = () => {
           <button
             onClick={toggleMenu}
             aria-label="More Information"
-            className="text-2xl text-white bg-black rounded-full"
+            className="text-2xl text-black hover:text-main rounded-full"
           >
-            <FiInfo />
+            <MdNotificationImportant />
           </button>
         </div>
       </nav>

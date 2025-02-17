@@ -13,7 +13,7 @@ import CookieConsentBar from "./components/CookieConsentBar";
 
 const App = () => {
   const { loading, error, data } = useQuery(HOME_QUERIES);
-  const topBanner = data?.pages?.edges.find(({ node }) => node.home?.topBanner?.displayBanner)?.node?.home?.topBanner || null;
+  const topBanner = data?.pages?.edges?.[0]?.node?.home?.topBanner;
 
   if (loading) return <Loading />;
   if (error) return <ErrorAlert error={error} />;
