@@ -1,7 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { HOME_QUERIES } from "./wpgraphql/queries";
-import { Routes, Route } from "react-router-dom";
-// ... other imports
+import { Routes } from "react-router-dom";
 
 const App = () => {
   const { data } = useQuery(HOME_QUERIES);
@@ -14,9 +13,7 @@ const App = () => {
           {topBanner.information}
         </div>
       )}
-      <Routes>
-        {/* your existing routes */}
-      </Routes>
+      <Routes></Routes>
     </>
   );
 };
