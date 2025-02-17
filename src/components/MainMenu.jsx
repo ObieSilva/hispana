@@ -16,7 +16,7 @@ const MainMenu = () => {
 
   return (
     <nav>
-      <ul className="flex gap-2">
+      <ul className="flex flex-col items-center gap-2 md:flex-row md:gap-2">
         {menuItems.map(({ node }) => (
           <li key={node.label}>
             <a href={node.uri}>{node.label}</a>

@@ -1,7 +1,7 @@
 // React import
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { FiX } from "react-icons/fi";
+import { FiX, FiMenu, FiInfo } from "react-icons/fi";
 import { RiFacebookFill, RiInstagramLine, RiYoutubeLine } from "react-icons/ri";
 
 // Assets import
@@ -11,8 +11,10 @@ import MapEmbed from "./MapEmbed";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isBurgerOpen, setIsBurgerOpen] = useState(false);
 
-  const toggleMenu = () => setIsMenuOpen((prevIsMenuOpen) => !prevIsMenuOpen);
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+  const toggleBurger = () => setIsBurgerOpen((prev) => !prev);
 
   const socialMediaLinks = [
     {
@@ -35,11 +37,48 @@ const Header = () => {
         <Link to="/">
           <img className="w-40 h-full object-contain" src={logo} alt="Logo" />
         </Link>
-        <div className="flex gap-4 font-medium">
-          <MainMenu />
-          <button onClick={toggleMenu}>Mas Información</button>
+        <div className="flex items-center gap-4">
+          {/* Mobile Menu Button */}
+          <button
+            onClick={toggleBurger}
+            className="md:hidden text-2xl"
+            aria-label={isBurgerOpen ? "Close menu" : "Open menu"}
+          >
+            {isBurgerOpen ? <FiX /> : <FiMenu />}
+          </button>
+          {/* Desktop Menu */}
+          <div className="hidden md:block">
+            <MainMenu />
+          </div>
+          <button
+            onClick={toggleMenu}
+            aria-label="More Information"
+            className="text-2xl text-white bg-black rounded-full"
+          >
+            <FiInfo />
+          </button>
         </div>
       </nav>
+
+      {/* Mobile Menu Overlay */}
+      <div
+        className={`fixed top-0 left-0 w-full h-full bg-black transition-transform duration-300 z-[100] ${
+          isBurgerOpen ? "translate-y-0" : "-translate-y-full"
+        } md:hidden`}
+      >
+        <button
+          onClick={toggleBurger}
+          className="absolute top-4 right-4 text-white text-2xl"
+          aria-label="Close menu"
+        >
+          <FiX size="25" />
+        </button>
+        <div className="flex flex-col items-center justify-center h-full gap-8 text-white text-xl">
+          <MainMenu />
+        </div>
+      </div>
+
+      {/* Existing Mas Información overlay */}
       <button
         className={`fixed top-0 left-0 w-full h-full bg-[#000000] bg-opacity-80 z-50 transition-opacity duration-300 ${
           isMenuOpen
@@ -53,9 +92,13 @@ const Header = () => {
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
+        <FiX
+          className="absolute top-0 right-0 mt-4 mr-4 text-black text-5xl focus:outline-none cursor-pointer"
+          size="25"
+          onClick={toggleMenu}
+        />
         <div className="p-4 flex flex-col justify-center items-center h-full">
-          <MapEmbed />
-          <div className="mt-4">
+          <div>
             <b>Dirección:</b>{" "}
             <a
               href="https://maps.google.com/?q=44505+Atwater+Dr+Ashburn+VA+20147"
@@ -66,6 +109,7 @@ const Header = () => {
               44505 Atwater Dr Ashburn, VA 20147
             </a>
           </div>
+          <MapEmbed />
           <div className="p-4 flex gap-4">
             {socialMediaLinks.map(({ icon: Icon, url }) => (
               <Icon
@@ -77,11 +121,6 @@ const Header = () => {
             ))}
           </div>
         </div>
-        <FiX
-          className="absolute top-0 right-0 mt-4 mr-4 text-white text-5xl focus:outline-none cursor-pointer"
-          size="25"
-          onClick={toggleMenu}
-        />
       </div>
     </div>
   );
