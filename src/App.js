@@ -7,7 +7,6 @@ import Home from "./pages/home/Home";
 
 // Components import
 import Banner from "./components/Banner";
-import MapEmbed from "./components/MapEmbed";
 import Loading from "./components/reusable/Loading";
 import ErrorAlert from "./components/reusable/ErrorAlert";
 import CookieConsentBar from "./components/CookieConsentBar";
@@ -30,7 +29,6 @@ const App = () => {
       )}
       <div>
         <Home data={data} />
-        <MapEmbed />
       </div>
       <CookieConsentBar />
     </div>

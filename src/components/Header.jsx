@@ -5,8 +5,9 @@ import { FiX } from "react-icons/fi";
 import { RiFacebookFill, RiInstagramLine, RiYoutubeLine } from "react-icons/ri";
 
 // Assets import
-import logo from "../assets/images/logo.png"
+import logo from "../assets/images/logo.png";
 import MainMenu from "./MainMenu";
+import MapEmbed from "./MapEmbed";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,27 +35,36 @@ const Header = () => {
         <Link to="/">
           <img className="w-40 h-full object-contain" src={logo} alt="Logo" />
         </Link>
-        <div className="flex cursor-pointer font-bold" onClick={toggleMenu}>
-          MENU
+        <div className="flex gap-4 font-medium">
+          <MainMenu />
+          <button onClick={toggleMenu}>Mas Información</button>
         </div>
       </nav>
-      <div
+      <button
         className={`fixed top-0 left-0 w-full h-full bg-[#000000] bg-opacity-80 z-50 transition-opacity duration-300 ${
           isMenuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         }`}
         onClick={toggleMenu}
-      ></div>
+      ></button>
       <div
         className={`fixed top-0 right-0 h-full w-full sm:w-full lg:w-[400px] bg-[#ffffff] z-50 transition-transform duration-300 ease-in-out transform ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="p-4 flex flex-col justify-center items-center h-full">
-          <MainMenu />
-          <div>
-            <b>Dirección:</b> 44505 Atwater Dr Ashburn, VA 20147
+          <MapEmbed />
+          <div className="mt-4">
+            <b>Dirección:</b>{" "}
+            <a
+              href="https://maps.google.com/?q=44505+Atwater+Dr+Ashburn+VA+20147"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              44505 Atwater Dr Ashburn, VA 20147
+            </a>
           </div>
           <div className="p-4 flex gap-4">
             {socialMediaLinks.map(({ icon: Icon, url }) => (

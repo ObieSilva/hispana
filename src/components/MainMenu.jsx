@@ -16,10 +16,10 @@ const MainMenu = () => {
 
   return (
     <nav>
-      <ul className="text-center mb-12">
+      <ul className="flex gap-2">
         {menuItems.map(({ node }) => (
           <li key={node.label}>
-            <a className="bg-lightShade py-3 px-14 rounded-md mb-2 block" href={node.uri}>{node.label}</a>
+            <a href={node.uri}>{node.label}</a>
           </li>
         ))}
       </ul>
