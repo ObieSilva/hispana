@@ -3,11 +3,13 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FiX, FiMenu, FiInfo } from "react-icons/fi";
 import { RiFacebookFill, RiInstagramLine, RiYoutubeLine } from "react-icons/ri";
+import PropTypes from "prop-types";
 
 // Assets import
 import logo from "../assets/images/logo.png";
 import MainMenu from "./MainMenu";
 import MapEmbed from "./MapEmbed";
+import SermonEmbed from "./CurrentSermon";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -47,7 +49,7 @@ const Header = () => {
             {isBurgerOpen ? <FiX /> : <FiMenu />}
           </button>
           {/* Desktop Menu */}
-          <div className="hidden md:block">
+          <div className="hidden md:block font-medium">
             <MainMenu />
           </div>
           <button
@@ -98,6 +100,10 @@ const Header = () => {
           onClick={toggleMenu}
         />
         <div className="p-4 flex flex-col justify-center items-center h-full">
+          <div className="mb-4">
+            <h5>Ultimo Sermón</h5>
+            <SermonEmbed />
+          </div>
           <div>
             <b>Dirección:</b>{" "}
             <a
@@ -124,6 +130,10 @@ const Header = () => {
       </div>
     </div>
   );
+};
+
+Header.propTypes = {
+  sermonUrl: PropTypes.string.isRequired,
 };
 
 export default Header;

@@ -11,7 +11,7 @@ const Banner = ({ information, displayBanner, bannerType }) => {
 
   if (bannerType === "topBanner") {
     bannerUI = (
-      <div className="top-banner bg-main text-white text-center font-medium py-3">
+      <div className="top-banner gradient-custom text-black text-center font-semibold text-sm py-3">
         <div dangerouslySetInnerHTML={{ __html: information }} />
       </div>
     );

@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 
 export const HOME_QUERIES = gql`
   query NewQuery {
-    pages {
+    pages(where: { name: "home" }) {
       edges {
         node {
           title
