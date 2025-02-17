@@ -1,4 +1,5 @@
 import { FiInfo } from "react-icons/fi";
+import PropTypes from "prop-types";
 
 const Banner = ({ information, displayBanner, bannerType }) => {
   const shouldDisplayBanner = Boolean(displayBanner);
@@ -19,7 +20,7 @@ const Banner = ({ information, displayBanner, bannerType }) => {
     bannerUI = (
       <div className="information-banner bg-darkShade p-4 border-accent border-2 rounded-md text-white flex gap-2 m-4 lg:my-16">
         <div>
-          <FiInfo size="25" className="text-accent"/>
+          <FiInfo size="25" className="text-accent" />
         </div>
         <div dangerouslySetInnerHTML={{ __html: information }} />
       </div>
@@ -29,6 +30,12 @@ const Banner = ({ information, displayBanner, bannerType }) => {
   }
 
   return bannerUI;
+};
+
+Banner.propTypes = {
+  information: PropTypes.string.isRequired,
+  displayBanner: PropTypes.bool.isRequired,
+  bannerType: PropTypes.string.isRequired,
 };
 
 export default Banner;

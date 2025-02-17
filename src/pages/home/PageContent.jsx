@@ -1,5 +1,6 @@
 //Components import
 import Banner from "../../components/Banner";
+import PropTypes from 'prop-types';
 
 const PageContent = ({ node }) => {
   const { title, home } = node;
@@ -18,6 +19,15 @@ const PageContent = ({ node }) => {
       </div>
     </div>
   );
+};
+
+PageContent.propTypes = {
+  node: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    home: PropTypes.shape({
+      informationBanner: PropTypes.object
+    }).isRequired
+  }).isRequired
 };
 
 export default PageContent;

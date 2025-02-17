@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { FiX, FiMenu } from "react-icons/fi";
 import { MdNotificationImportant } from "react-icons/md";
 import { RiFacebookFill, RiInstagramLine, RiYoutubeLine } from "react-icons/ri";
-import PropTypes from "prop-types";
 
 // Assets import
 import logo from "../assets/images/logo.png";
@@ -131,10 +130,6 @@ const Header = () => {
       </div>
     </div>
   );
-};
-
-Header.propTypes = {
-  sermonUrl: PropTypes.string.isRequired,
 };
 
 export default Header;
