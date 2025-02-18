@@ -40,6 +40,7 @@ module.exports = {
       darkShade: "#d79f23", // Can be used for secondary highlights or backgrounds
       border: "#cbd5e0", // For borders or subtle dividers
       white: "#ffffff", // Pure white, for backgrounds or text on dark colors
+      whiteShade: "#f5f5f5", // A softer white for backgrounds or text on dark colors
       black: "#000000", // Black, for text or icons where high contrast is needed
       text: {
         light: "#94a3b8", // Lighter text for secondary or muted copy

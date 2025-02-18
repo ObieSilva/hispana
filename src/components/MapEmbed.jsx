@@ -8,8 +8,7 @@ const MapEmbed = () => {
       style={{
         border: 0,
         borderRadius: "16px",
-        marginTop: "21px",
-        marginBottom: "21px",
+        marginTop: "6px",
       }}
       allowFullScreen=""
       loading="lazy"

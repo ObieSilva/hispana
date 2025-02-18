@@ -14,8 +14,8 @@ const SermonEmbed = () => {
     <iframe
       title="Current Sermon"
       src={`https://www.youtube.com/embed/${videoId}`}
-      width="360"
-      height="150"
+      width="100%"
+      height="260"
       allowFullScreen
       style={{ borderRadius: "16px" }}
     />
