@@ -1,5 +1,5 @@
 //Components import
-import Banner from "../../components/Banner";
+import Banner from "../../components/AnnouncementBanner";
 import PropTypes from 'prop-types';
 
 const PageContent = ({ node }) => {

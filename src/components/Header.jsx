@@ -1,11 +1,9 @@
-// React import
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FiX, FiMenu } from "react-icons/fi";
 import { MdNotificationImportant } from "react-icons/md";
 import { RiFacebookFill, RiInstagramLine, RiYoutubeLine } from "react-icons/ri";
 
-// Assets import
 import logo from "../assets/images/logo.png";
 import MainMenu from "./MainMenu";
 import MapEmbed from "./MapEmbed";
@@ -19,68 +17,34 @@ const Header = () => {
   const toggleBurger = () => setIsBurgerOpen((prev) => !prev);
 
   const socialMediaLinks = [
-    {
-      icon: RiFacebookFill,
-      url: "https://www.facebook.com/hispanacfc/",
-    },
-    {
-      icon: RiInstagramLine,
-      url: "https://www.instagram.com/hispanacfc/",
-    },
-    {
-      icon: RiYoutubeLine,
-      url: "https://www.youtube.com/@hispanacfc",
-    },
+    { icon: RiFacebookFill, url: "https://www.facebook.com/hispanacfc/" },
+    { icon: RiInstagramLine, url: "https://www.instagram.com/hispanacfc/" },
+    { icon: RiYoutubeLine, url: "https://www.youtube.com/@hispanacfc" },
   ];
 
-  return (
-    <div className="w-full p-2 border-b border-border">
-      <nav className="container max-w-lg flex justify-between items-center mx-auto p-3 rounded-2xl px-4">
-        <Link to="/">
-          <img className="w-40 h-full object-contain" src={logo} alt="Logo" />
-        </Link>
-        <div className="flex items-center gap-4">
-          {/* Mobile Menu Button */}
-          <button
-            onClick={toggleBurger}
-            className="md:hidden text-2xl"
-            aria-label={isBurgerOpen ? "Close menu" : "Open menu"}
-          >
-            {isBurgerOpen ? <FiX /> : <FiMenu />}
-          </button>
-          {/* Desktop Menu */}
-          <div className="hidden md:block font-medium">
-            <MainMenu />
-          </div>
-          <button
-            onClick={toggleMenu}
-            aria-label="More Information"
-            className="text-2xl text-black hover:text-main rounded-full"
-          >
-            <MdNotificationImportant />
-          </button>
-        </div>
-      </nav>
-
-      {/* Mobile Menu Overlay */}
-      <div
-        className={`fixed top-0 left-0 w-full h-full bg-black transition-transform duration-300 z-[100] ${
-          isBurgerOpen ? "translate-y-0" : "-translate-y-full"
-        } md:hidden`}
+  // Mobile Menu Overlay
+  const mobileMenuOverlay = (
+    <div
+      className={`fixed top-0 left-0 w-full h-full bg-black transition-transform duration-300 z-[100] ${
+        isBurgerOpen ? "translate-y-0" : "-translate-y-full"
+      } md:hidden`}
+    >
+      <button
+        onClick={toggleBurger}
+        className="absolute top-4 right-4 text-white text-2xl"
+        aria-label="Close menu"
       >
-        <button
-          onClick={toggleBurger}
-          className="absolute top-4 right-4 text-white text-2xl"
-          aria-label="Close menu"
-        >
-          <FiX size="25" />
-        </button>
-        <div className="flex flex-col items-center justify-center h-full gap-8 text-white text-xl">
-          <MainMenu />
-        </div>
+        <FiX size="25" />
+      </button>
+      <div className="flex flex-col items-center justify-center h-full gap-8 text-white text-xl">
+        <MainMenu />
       </div>
+    </div>
+  );
 
-      {/* Existing Mas Información overlay */}
+  // Más Información Overlay (for notifications / additional info)
+  const moreInfoOverlay = (
+    <>
       <button
         className={`fixed top-0 left-0 w-full h-full bg-[#000000] bg-opacity-80 z-50 transition-opacity duration-300 ${
           isMenuOpen
@@ -128,6 +92,40 @@ const Header = () => {
           </div>
         </div>
       </div>
+    </>
+  );
+
+  return (
+    <div className="w-full p-2 border-b border-border">
+      <nav className="container max-w-lg flex justify-between items-center mx-auto p-3 rounded-2xl px-4">
+        <Link to="/">
+          <img className="w-40 h-full object-contain" src={logo} alt="Logo" />
+        </Link>
+        <div className="flex items-center gap-4">
+          {/* Mobile Menu Button */}
+          <button
+            onClick={toggleBurger}
+            className="md:hidden text-2xl"
+            aria-label={isBurgerOpen ? "Close menu" : "Open menu"}
+          >
+            {isBurgerOpen ? <FiX /> : <FiMenu />}
+          </button>
+          {/* Desktop Menu */}
+          <div className="hidden md:block font-medium">
+            <MainMenu />
+          </div>
+          <button
+            onClick={toggleMenu}
+            aria-label="More Information"
+            className="text-2xl text-black hover:text-main rounded-full"
+          >
+            <MdNotificationImportant />
+          </button>
+        </div>
+      </nav>
+
+      {mobileMenuOverlay}
+      {moreInfoOverlay}
     </div>
   );
 };

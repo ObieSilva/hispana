@@ -10,7 +10,7 @@ import Header from "../../components/Header";
 import FeaturedImage from "../../components/FeaturedImage";
 import Loading from "../../components/reusable/Loading";
 import ErrorAlert from "../../components/reusable/ErrorAlert";
-import CookieConsentBar from "../../components/CookieConsentBar";
+import CookieNotice from "../../components/CookieNotice";
 
 const PageTemplate = () => {
   const { slug } = useParams();
@@ -43,7 +43,7 @@ const PageTemplate = () => {
         <h1>{title}</h1>
         <div dangerouslySetInnerHTML={{ __html: content }} />
       </div>
-      <CookieConsentBar />
+      <CookieNotice />
     </>
   );
 };
