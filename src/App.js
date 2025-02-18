@@ -6,10 +6,11 @@ import { HOME_QUERIES } from "./wpgraphql/queries";
 import Home from "./pages/home/Home";
 
 // Components import
-import Banner from "./components/Banner";
 import Loading from "./components/reusable/Loading";
 import ErrorAlert from "./components/reusable/ErrorAlert";
 import CookieConsentBar from "./components/CookieConsentBar";
+import Header from "./components/Header";
+import Banner from "./components/Banner";
 
 const App = () => {
   const { loading, error, data } = useQuery(HOME_QUERIES);
@@ -20,14 +21,15 @@ const App = () => {
 
   return (
     <div className="App h-full">
-      {topBanner?.displayBanner && (
-        <Banner
-          information={topBanner.information}
-          displayBanner={topBanner.displayBanner}
-          bannerType="topBanner"
-        />
-      )}
       <div>
+        {topBanner?.displayBanner && (
+          <Banner
+            information={topBanner.information}
+            displayBanner={topBanner.displayBanner}
+            bannerType="topBanner"
+          />
+        )}
+        <Header />
         <Home data={data} />
       </div>
       <CookieConsentBar />

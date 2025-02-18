@@ -3,11 +3,17 @@ import { Link } from "react-router-dom";
 import { AiOutlineReload } from "react-icons/ai";
 import { IoLocationOutline } from "react-icons/io5";
 import moment from "moment";
+import PropTypes from "prop-types";
 
 // Components import
 import HispanaButton from "./reusable/HispanaButton";
 
-const UpcomingEvent = ({ eventLocation, eventPageUri, eventDate, eventTitle, borderColor = "#cbd5e0", }) => {
+const UpcomingEvent = ({
+  eventLocation,
+  eventPageUri,
+  eventDate,
+  eventTitle,
+}) => {
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -43,23 +49,23 @@ const UpcomingEvent = ({ eventLocation, eventPageUri, eventDate, eventTitle, bor
   const formattedMonth = moment(eventDate).format("MMM"); // Month as a three-letter abbreviation
 
   return (
-    <div className="lg:border-b border-borderColor">
+    <div className="lg:border-b border-border">
       <div className="flex flex-wrap lg:flex-nowrap container max-w-lg mx-auto p-4 lg:p-0 lg:items-center gap-4 lg:gap-0">
         <div className="flex flex-wrap-reverse lg:flex-nowrap w-full">
-          <div className="bg-main text-[#ffffff] px-2.5 flex flex-wrap content-center basis-24 justify-center flex-col items-center">
+          <div className="bg-primary text-[#ffffff] px-2.5 flex flex-wrap content-center basis-24 justify-center flex-col items-center">
             <span className="font-bold text-4xl leading-none">
               {formattedDate}
             </span>
             <span className="text-sm">{formattedMonth.toUpperCase()}</span>
           </div>
-          <div className="border lg:border-b-0 lg:border-r-0 grow py-4 px-6 border-borderColor">
+          <div className="border lg:border-b-0 lg:border-r-0 grow py-4 px-6 border-border">
             <div className="flex flex-col mb-4">
               <span className="text-borderColor small">SIGUIENTE</span>
               <span className="text-sm">PRÓXIMO EVENTO</span>
             </div>
             <div>
               <div className="flex items-center gap-1 text-black text-lg font-medium">
-              <Link to={eventPageUri}>{eventTitle}</Link>
+                <Link to={eventPageUri}>{eventTitle}</Link>
                 <AiOutlineReload />
               </div>
               <div className="flex items-center gap-1">
@@ -69,29 +75,29 @@ const UpcomingEvent = ({ eventLocation, eventPageUri, eventDate, eventTitle, bor
             </div>
           </div>
           <div className="flex basis-full lg:basis-auto grow-[6] min-h-[100px]">
-            <div className="border border-r-0 border-b-0 flex flex-grow flex-col items-center justify-center border-borderColor">
+            <div className="border border-r-0 border-b-0 flex flex-grow flex-col items-center justify-center border-border">
               <span className="text-2xl font-extrabold leading-none text-lightText">
                 {timeLeft.days}
               </span>
-              <span className="text-borderColor small">DIAS</span>
+              <span className="small">DIAS</span>
             </div>
-            <div className="border border-r-0 border-b-0 border-borderColor flex flex-grow flex-col items-center justify-center">
+            <div className="border border-r-0 border-b-0 border-border flex flex-grow flex-col items-center justify-center">
               <span className="text-2xl font-extrabold leading-none text-lightText">
                 {timeLeft.hours}
               </span>
-              <span className="text-borderColor small">HR</span>
+              <span className="small">HR</span>
             </div>
-            <div className="border border-r-0 border-b-0 border-borderColor flex flex-grow flex-col items-center justify-center">
+            <div className="border border-r-0 border-b-0 border-border flex flex-grow flex-col items-center justify-center">
               <span className="text-2xl font-extrabold leading-none text-lightText">
                 {timeLeft.minutes}
               </span>
-              <span className="text-borderColor small">MIN</span>
+              <span className="small">MIN</span>
             </div>
-            <div className="border border-b-0 border-borderColor lg:border-r-0 flex flex-grow flex-col items-center justify-center">
+            <div className="border border-b-0 border-border lg:border-r-0 flex flex-grow flex-col items-center justify-center">
               <span className="text-2xl font-extrabold leading-none text-lightText">
                 {timeLeft.seconds}
               </span>
-              <span className="text-borderColor small">SEG</span>
+              <span className="small">SEG</span>
             </div>
           </div>
         </div>
@@ -106,6 +112,13 @@ const UpcomingEvent = ({ eventLocation, eventPageUri, eventDate, eventTitle, bor
       </div>
     </div>
   );
+};
+
+UpcomingEvent.propTypes = {
+  eventLocation: PropTypes.string.isRequired,
+  eventPageUri: PropTypes.string.isRequired,
+  eventDate: PropTypes.string.isRequired,
+  eventTitle: PropTypes.string.isRequired,
 };
 
 export default UpcomingEvent;

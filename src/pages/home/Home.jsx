@@ -1,11 +1,9 @@
 // Components import
-import Header from "../../components/Header";
 import PageContent from "./PageContent";
 import HeroSwiper from "../../components/HeroSwiper";
 import UpcomingEvent from "../../components/UpcomingEvent";
 import FeatureBlock from "./FeatureBlock";
 import PropTypes from "prop-types";
-
 import familyImage from "../../assets/images/family.svg";
 import calendar from "../../assets/images/calendar.svg";
 import ministries from "../../assets/images/ministries.svg";
@@ -28,7 +26,6 @@ const Home = ({ data }) => {
 
   return (
     <div className="App h-full">
-      <Header />
       <div>
         <HeroSwiper heroSlides={heroSlides} />
         <UpcomingEvent
@@ -41,7 +38,7 @@ const Home = ({ data }) => {
           {pages.map(({ node }) => (
             <PageContent key={node.title} node={node} />
           ))}
-          <div className="bg-lightShade py-32 border-y border-borderColor">
+          <div className="bg-lightShade py-32 border-y border-border">
             <div className="container max-w-lg mx-auto px-4 lg:px-0">
               <span className="block font-bold text-4xl text-center pb-8">
                 PIENSAS VISITARNOS?
