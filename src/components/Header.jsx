@@ -36,7 +36,7 @@ const Header = () => {
       >
         <FiX size="25" />
       </button>
-      <div className="flex flex-col items-center justify-center h-full gap-8 text-white text-xl">
+      <div className="flex flex-col items-center justify-center h-full gap-8 text-white text-xl [&_a]:text-white">
         <MainMenu />
       </div>
     </div>
@@ -113,6 +113,17 @@ const Header = () => {
           {/* Desktop Menu */}
           <div className="hidden md:block font-medium">
             <MainMenu />
+          </div>
+          {/* Social Media Icons - Hidden on Mobile */}
+          <div className="hidden md:flex gap-4">
+            {socialMediaLinks.map(({ icon: Icon, url }) => (
+              <Icon
+                key={url}
+                className="cursor-pointer text-black hover:text-main"
+                size="20"
+                onClick={() => window.open(url, "_blank")}
+              />
+            ))}
           </div>
           <button
             onClick={toggleMenu}
