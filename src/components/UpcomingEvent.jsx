@@ -81,7 +81,7 @@ const UpcomingEvent = ({
               </span>
               <span className="small">DIAS</span>
             </div>
-            <div className="border border-r-0 border-b-0 border-border flex flex-grow flex-col items-center justify-center">
+            <div className="border border-r-0 border-b-0 text-gray-500 border-border flex flex-grow flex-col items-center justify-center">
               <span className="text-2xl font-extrabold leading-none text-lightText">
                 {timeLeft.hours}
               </span>

@@ -77,8 +77,6 @@ h5 {
   text-align: center;
   font-size: 18px;
   background: #fff;
-
-  /* Center slide text vertically */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -102,7 +100,6 @@ h5 {
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  /* color: var(--swiper-theme-color); */
   color: #ffffff;
 }
 
@@ -115,15 +112,9 @@ h5 {
   width: 100%;
   height: 100%;
   stroke-width: 4px;
-  /* stroke: var(--swiper-theme-color); */
   stroke: #ffffff;
   fill: none;
   stroke-dashoffset: calc(125.6px * (1 - var(--progress)));
   stroke-dasharray: 125.6;
   transform: rotate(-90deg);
 }
-
-/* 
-  .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
-    background: #yellow !important;
-  } */

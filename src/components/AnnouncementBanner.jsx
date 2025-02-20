@@ -15,7 +15,7 @@ const AnnouncementBanner = ({ information, displayBanner, bannerType }) => {
       );
     case "informationBanner":
       return (
-        <div className="information-banner bg-darkShade p-4 border-accent border-2 rounded-md text-white flex gap-2 m-4 lg:my-16">
+        <div className="information-banner bg-darkShade p-4 border-accent border-2 rounded-md text-black flex gap-2 m-4 lg:my-16">
           <div>
             <FiInfo size="25" className="text-accent" />
           </div>

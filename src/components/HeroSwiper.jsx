@@ -4,6 +4,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper/modules";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const HeroSwiper = ({ heroSlides }) => {
   const progressCircle = useRef(null);
@@ -32,20 +33,36 @@ const HeroSwiper = ({ heroSlides }) => {
 
           const backgroundStyles = {
             background: slide.image
-              ? `${gradientStyle}, url(${slide.image.sourceUrl}) no-repeat ${position}` 
+              ? `${gradientStyle}, url(${slide.image.sourceUrl}) no-repeat ${position}`
               : "none",
             backgroundSize: "cover",
           };
 
           return (
-            <SwiperSlide key={index} style={backgroundStyles}>
+            <SwiperSlide
+              key={`${slide.id || ""}${slide.content?.header || ""}${index}`}
+              style={backgroundStyles}
+            >
               <div className="slide-content flex items-center h-full p-4">
                 {slide.content && (
                   <div className="container max-w-lg mx-auto text-left">
-                    <p className="text-white uppercase tracking-widest pb-2">{slide.content.tag}</p>
-                    <h2 className="text-white text-[52px] uppercase font-semibold tracking-wide mb-4">{slide.content.header}</h2>
-                    <p className="text-white w-9/12 text-[15px] mb-6">{slide.content.paragraph}</p>
-                    <Link to={slide.content.button?.uri} className="text-white border border-white p-4 rounded-md hover:bg-white hover:text-black opacity-100 transition-opacity duration-300 ease-in-out">Learn More</Link>
+                    <p className="text-white uppercase tracking-widest pb-2">
+                      {slide.content.tag}
+                    </p>
+                    <h2 className="text-white text-[52px] uppercase font-semibold tracking-wide mb-4">
+                      {slide.content.header}
+                    </h2>
+                    <p className="text-white w-9/12 text-[15px] mb-6">
+                      {slide.content.paragraph}
+                    </p>
+                    {slide.content.button?.uri && (
+                      <Link
+                        to={slide.content.button.uri}
+                        className="text-white text-sm border border-white py-2 px-6 rounded-md hover:bg-white hover:text-black opacity-100 transition-opacity duration-300 ease-in-out"
+                      >
+                        {slide.content.button.text || "LEARN MORE"}
+                      </Link>
+                    )}
                   </div>
                 )}
               </div>
@@ -61,6 +78,29 @@ const HeroSwiper = ({ heroSlides }) => {
       </Swiper>
     </div>
   );
+};
+
+HeroSwiper.propTypes = {
+  heroSlides: PropTypes.arrayOf(
+    PropTypes.shape({
+      image: PropTypes.shape({
+        sourceUrl: PropTypes.string,
+      }),
+      imageTools: PropTypes.shape({
+        position: PropTypes.string,
+        gradient: PropTypes.number,
+      }),
+      content: PropTypes.shape({
+        tag: PropTypes.string,
+        header: PropTypes.string,
+        paragraph: PropTypes.string,
+        button: PropTypes.shape({
+          uri: PropTypes.string,
+          text: PropTypes.string,
+        }),
+      }),
+    })
+  ).isRequired,
 };
 
 export default HeroSwiper;

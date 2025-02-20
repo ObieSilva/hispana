@@ -23,7 +23,7 @@ const MainMenu = () => {
           <li key={node.label}>
             <Link 
               to={node.uri}
-              className={`transition-colors duration-200 ${
+              className={`transition-colors duration-200 md:border-r border-border pr-2 ${
                 location.pathname === node.uri 
                   ? "text-primary" 
                   : "text-secondary hover:text-accent"
