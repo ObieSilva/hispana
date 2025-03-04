@@ -13,19 +13,28 @@ const PrayerRequestForm = () => {
     event.preventDefault();
     const form = event.target;
     const formData = new FormData(form);
-    const data = new URLSearchParams(formData).toString();
 
     try {
-      await fetch("/", {
+      const response = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: data,
+        body: new URLSearchParams(formData).toString(),
       });
-      // Redirect to thank you page on success
-      window.location.href = "/thank-you";
+
+      if (response.ok) {
+        // Show success message
+        alert(
+          "¡Gracias por tu petición de oración! Nos pondremos en contacto contigo pronto."
+        );
+        form.reset();
+      } else {
+        throw new Error("Network response was not ok");
+      }
     } catch (error) {
       console.error("Form submission error:", error);
-      alert("There was an error submitting the form. Please try again.");
+      alert(
+        "Hubo un error al enviar el formulario. Por favor, intenta de nuevo."
+      );
     }
   };
 
@@ -59,7 +68,6 @@ const PrayerRequestForm = () => {
           method="POST"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
-          action="/thank-you"
           onSubmit={handleSubmit}
         >
           {/* Hidden input for Netlify Forms */}
