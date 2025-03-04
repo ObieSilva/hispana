@@ -25,7 +25,7 @@ const MainMenu = () => {
               to={node.uri}
               className={`transition-colors duration-200 md:border-r border-border pr-2 ${
                 location.pathname === node.uri 
-                  ? "text-primary" 
+                  ? "text-accent" 
                   : "text-secondary hover:text-accent"
               }`}
             >

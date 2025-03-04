@@ -38,18 +38,18 @@ const PrayerRequestForm = () => {
           mt: 0,
           border: 1,
           borderColor: "#cbd5e0",
-          fontFamily: '"Noto Sans", serif',
+          fontFamily: '"Poppins", serif',
           "& .MuiTypography-root": {
-            fontFamily: '"Noto Sans", serif',
+            fontFamily: '"Poppins", serif',
             color: "black",
             fontSize: "15px",
           },
           "& .MuiInputBase-root": {
-            fontFamily: '"Noto Sans", serif',
+            fontFamily: '"Poppins", serif',
             fontSize: "15px",
           },
           "& .MuiButton-root": {
-            fontFamily: '"Noto Sans", serif',
+            fontFamily: '"Poppins", serif',
             fontSize: "15px",
           },
         }}
@@ -74,7 +74,7 @@ const PrayerRequestForm = () => {
           {/* Prayer Request Section */}
           <Box sx={{ mb: 4 }}>
             <Typography variant="h6" sx={{ mb: 2 }}>
-              ¿Cómo podemos orar por ti?*
+              ¿Cómo podemos orar por ti?
             </Typography>
             <TextField
               id="prayerRequest"
