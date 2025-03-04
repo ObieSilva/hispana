@@ -14,15 +14,12 @@ const PrayerRequestForm = () => {
     const form = event.target;
     const formData = new FormData(form);
 
-    // Add a timestamp to prevent caching issues
-    formData.append("timestamp", new Date().toISOString());
-
     try {
-      const response = await fetch("/", {
+      // Use the Netlify Forms endpoint directly
+      const response = await fetch("/.netlify/forms/prayer-request", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
-          "Cache-Control": "no-cache",
         },
         body: new URLSearchParams(formData).toString(),
       });
@@ -36,12 +33,18 @@ const PrayerRequestForm = () => {
       } else {
         const errorData = await response.text();
         console.error("Form submission error:", errorData);
+        console.error("Response status:", response.status);
+        console.error(
+          "Response headers:",
+          Object.fromEntries(response.headers.entries())
+        );
+
         throw new Error(`Form submission failed: ${response.status}`);
       }
     } catch (error) {
       console.error("Form submission error:", error);
       alert(
-        "Hubo un error al enviar el formulario. Por favor, intenta de nuevo."
+        "Hubo un error al enviar el formulario. Por favor, intenta de nuevo o contacta directamente al Pastor Dr. Hector M. Aldaz al 703-724-4925 o por correo a haldaz@cfcwired.org"
       );
     }
   };
