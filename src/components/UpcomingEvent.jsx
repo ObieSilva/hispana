@@ -104,7 +104,7 @@ const UpcomingEvent = ({
         <div className="w-full lg:w-[175px] hover:text-[#000]">
           <HispanaButton
             sx={{ width: "100%", padding: "8px" }}
-            title="Mas Eventos"
+            title="Ver Evento"
             backgroundColor="#c13636"
             variant="contained"
           />

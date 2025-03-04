@@ -40,9 +40,9 @@ const Home = ({ data }) => {
           ))}
           <div className="bg-lightShade py-32 border-y border-border">
             <div className="container max-w-lg mx-auto px-4 lg:px-0">
-              <span className="block font-bold text-4xl text-center pb-8">
+              <h2 className="block font-bold text-4xl text-center pb-8">
                 PIENSAS VISITARNOS?
-              </span>
+              </h2>
               <div className="grid gap-1 md:grid-cols-2 lg:grid-cols-3 mt-4 bg-[#ffffff]">
                 <FeatureBlock
                   linkTo="/creencias"

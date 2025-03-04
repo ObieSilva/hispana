@@ -46,7 +46,7 @@ const Header = () => {
     >
       <button
         onClick={toggleBurger}
-        className="absolute top-4 right-4 text-white text-2xl"
+        className="absolute top-4 right-4 text-white text-2xl hover:bg-white hover:rounded-full hover:text-black p-2"
         aria-label="Close menu"
       >
         <FiX size="25" />
@@ -77,35 +77,29 @@ const Header = () => {
           <FiX className="text-black" size="25" onClick={toggleMenu} />
         </div>
         <div className="p-4 flex flex-col h-full">
-          <h6 className="font-medium text-xl rounded-lg mt-10 mb-2">
-            Peticiones
-          </h6>
+          <h6 className="font-medium text-xl mt-10 mb-4">Peticiones</h6>
           <PrayerRequestForm />
           <div className="w-full">
-            <h6 className="font-medium text-xl rounded-lg mt-10 mb-2">
-              Ultimo Sermón
-            </h6>
+            <h6 className="font-medium text-xl mt-10 mb-4">Ultimo Sermón</h6>
             <SermonEmbed />
           </div>
           <div>
-            <h6 className="font-medium text-xl rounded-lg mt-10 mb-2">
-              Dirección
-            </h6>
+            <h6 className="font-medium text-xl mt-10 mb-4">Dirección</h6>
             <MapEmbed />
           </div>
           <div className="pb-14">
-            <h6 className="font-medium text-xl rounded-lg mt-10 mb-2">
-              Siguenos
+            <h6 className="font-medium text-xl mt-10 mb-4">
+              Mantente Informado
             </h6>
             <div className="flex gap-2">
               {socialMediaLinks.map(({ icon: Icon, url }) => (
                 <button
                   key={url}
-                  className="p-2 rounded-full bg-accent cursor-pointer"
+                  className="p-2 rounded-full bg-whiteShade cursor-pointer hover:text-accent border border-border"
                   onClick={() => window.open(url, "_blank")}
                   aria-label={`Visit our ${Icon.name} page`}
                 >
-                  <Icon className="text-white hover:text-main" size="20" />
+                  <Icon size="20" />
                 </button>
               ))}
             </div>

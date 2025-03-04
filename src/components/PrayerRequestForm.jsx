@@ -73,7 +73,7 @@ const PrayerRequestForm = () => {
 
           {/* Prayer Request Section */}
           <Box sx={{ mb: 4 }}>
-            <Typography variant="h6" sx={{ mb: 2 }}>
+            <Typography variant="h6" sx={{ mb: 1 }}>
               ¿Cómo podemos orar por ti?
             </Typography>
             <TextField
@@ -89,7 +89,7 @@ const PrayerRequestForm = () => {
 
           {/* Contact Section */}
           <Box sx={{ mb: 4 }}>
-            <Typography variant="h6" sx={{ mb: 2 }}>
+            <Typography variant="h6" sx={{ mb: 1 }}>
               Información de Contacto
             </Typography>
             <Box
@@ -139,6 +139,7 @@ const PrayerRequestForm = () => {
           <Button
             type="submit"
             variant="contained"
+            disableElevation
             color="primary"
             size="large"
             fullWidth
