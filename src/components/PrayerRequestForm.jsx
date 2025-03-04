@@ -14,10 +14,16 @@ const PrayerRequestForm = () => {
     const form = event.target;
     const formData = new FormData(form);
 
+    // Add a timestamp to prevent caching issues
+    formData.append("timestamp", new Date().toISOString());
+
     try {
-      const response = await fetch("/.netlify/forms/prayer-request", {
+      const response = await fetch("/", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Cache-Control": "no-cache",
+        },
         body: new URLSearchParams(formData).toString(),
       });
 
@@ -28,7 +34,9 @@ const PrayerRequestForm = () => {
         );
         form.reset();
       } else {
-        throw new Error("Network response was not ok");
+        const errorData = await response.text();
+        console.error("Form submission error:", errorData);
+        throw new Error(`Form submission failed: ${response.status}`);
       }
     } catch (error) {
       console.error("Form submission error:", error);
