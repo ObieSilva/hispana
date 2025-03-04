@@ -47,13 +47,13 @@ const HeroSwiper = ({ heroSlides }) => {
               <div className="slide-content flex items-center h-full p-4">
                 {slide.content && (
                   <div className="container max-w-lg mx-auto text-left">
-                    <p className="text-white uppercase tracking-widest pb-2">
+                    <p className="text-white uppercase tracking-widest pb-2 font-medium">
                       {slide.content.tag}
                     </p>
-                    <h2 className="text-white text-[52px] uppercase font-semibold tracking-wide mb-4">
+                    <h2 className="text-white text-6xl uppercase font-black tracking-wide mb-4">
                       {slide.content.header}
                     </h2>
-                    <p className="text-white w-9/12 text-[15px] mb-2">
+                    <p className="text-white w-9/12 mb-2">
                       {slide.content.paragraph}
                     </p>
                     {slide.content.button?.uri && (

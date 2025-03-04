@@ -38,18 +38,18 @@ const PrayerRequestForm = () => {
           mt: 0,
           border: 1,
           borderColor: "#cbd5e0",
-          fontFamily: '"Poppins", serif',
+          fontFamily: '"DM Sans", sans-serif',
           "& .MuiTypography-root": {
-            fontFamily: '"Poppins", serif',
+            fontFamily: '"DM Sans", sans-serif',
             color: "black",
             fontSize: "15px",
           },
           "& .MuiInputBase-root": {
-            fontFamily: '"Poppins", serif',
+            fontFamily: '"DM Sans", sans-serif',
             fontSize: "15px",
           },
           "& .MuiButton-root": {
-            fontFamily: '"Poppins", serif',
+            fontFamily: '"DM Sans", sans-serif',
             fontSize: "15px",
           },
         }}
