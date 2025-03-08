@@ -46,7 +46,7 @@ const Header = () => {
     >
       <button
         onClick={toggleBurger}
-        className="absolute top-4 right-4 text-white text-2xl"
+        className="absolute top-4 right-4 text-white text-2xl hover:bg-white hover:rounded-full hover:text-black p-2"
         aria-label="Close menu"
       >
         <FiX size="25" />
@@ -77,35 +77,30 @@ const Header = () => {
           <FiX className="text-black" size="25" onClick={toggleMenu} />
         </div>
         <div className="p-4 flex flex-col h-full">
-          <div className="bg-whiteShade rounded-lg p-2 mt-10 mb-2 font-medium">
-            Peticiones
-          </div>
+          <h6 className="font-medium text-xl mt-10 mb-4">Peticiones</h6>
           <PrayerRequestForm />
           <div className="w-full">
-            <div className="bg-whiteShade rounded-lg p-2 mt-10 mb-2 font-medium">
-              Ultimo Sermón
-            </div>
+            <h6 className="font-medium text-xl mt-10 mb-4">Ultimo Sermón</h6>
             <SermonEmbed />
           </div>
           <div>
-            <div className="bg-whiteShade rounded-lg p-2 mt-10 mb-2 font-medium">
-              Dirección
-            </div>
+            <h6 className="font-medium text-xl mt-10 mb-4">Dirección</h6>
             <MapEmbed />
           </div>
           <div className="pb-14">
-            <div className="bg-whiteShade rounded-lg p-2 mt-10 mb-2 font-medium">
-              Siguenos En Las Redes Sociales
-            </div>
+            <h6 className="font-medium text-xl mt-10 mb-4">
+              Mantente Informado
+            </h6>
             <div className="flex gap-2">
               {socialMediaLinks.map(({ icon: Icon, url }) => (
-                <div
+                <button
                   key={url}
-                  className="p-4 rounded-full bg-accent cursor-pointer"
+                  className="p-2 rounded-full bg-whiteShade cursor-pointer hover:text-accent border border-border"
                   onClick={() => window.open(url, "_blank")}
+                  aria-label={`Visit our ${Icon.name} page`}
                 >
-                  <Icon className="text-white hover:text-main" size="20" />
-                </div>
+                  <Icon size="20" />
+                </button>
               ))}
             </div>
           </div>
@@ -121,6 +116,16 @@ const Header = () => {
           <img className="w-40 h-full object-contain" src={logo} alt="Logo" />
         </Link>
         <div className="flex items-center gap-2">
+          {/* Mobile Notification (No Tooltip) */}
+          <div className="md:hidden">
+            <button
+              onClick={toggleMenu}
+              aria-label="More Information"
+              className="p-2 text-xl bg-primary text-white hover:text-main rounded-full"
+            >
+              <PiHandsPrayingFill />
+            </button>
+          </div>
           {/* Mobile Menu Button */}
           <button
             onClick={toggleBurger}
@@ -136,13 +141,14 @@ const Header = () => {
           {/* Social Media Icons - Hidden on Mobile */}
           <div className="hidden md:flex gap-2">
             {socialMediaLinks.map(({ icon: Icon, url }) => (
-              <div
+              <button
                 key={url}
-                className="p-2 rounded-full bg-whiteShade cursor-pointer"
+                className="p-2 rounded-full bg-whiteShade cursor-pointer hover:text-accent border border-border"
                 onClick={() => window.open(url, "_blank")}
+                aria-label={`Visit our ${Icon.name} page`}
               >
-                <Icon className="text-black hover:text-main" size="20" />
-              </div>
+                <Icon size="20" />
+              </button>
             ))}
           </div>
           {/* Desktop Tooltip for Notification */}
@@ -151,21 +157,11 @@ const Header = () => {
               <button
                 onClick={toggleMenu}
                 aria-label="More Information"
-                className="p-2 text-xl bg-primary text-white hover:text-main rounded-full"
+                className="p-2 text-xl bg-whiteShade rounded-full hover:text-accent border border-border"
               >
                 <PiHandsPrayingFill />
               </button>
             </BootstrapTooltip>
-          </div>
-          {/* Mobile Notification (No Tooltip) */}
-          <div className="md:hidden">
-            <button
-              onClick={toggleMenu}
-              aria-label="More Information"
-              className="p-2 text-xl bg-primary text-white hover:text-main rounded-full"
-            >
-              <PiHandsPrayingFill />
-            </button>
           </div>
         </div>
       </nav>
