@@ -17,7 +17,7 @@ const HeroSwiper = ({ heroSlides }) => {
   };
 
   return (
-    <div className="h-[60VH]">
+    <div className="h-[70VH]">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}

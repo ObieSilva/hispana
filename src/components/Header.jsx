@@ -7,8 +7,8 @@ import { Tooltip, tooltipClasses } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import logo from "../assets/images/logo.png";
 import MainMenu from "./MainMenu";
-import MapEmbed from "./MapEmbed";
-import SermonEmbed from "./CurrentSermon";
+// import MapEmbed from "./MapEmbed";
+// import SermonEmbed from "./CurrentSermon";
 import PrayerRequestForm from "./PrayerRequestForm";
 
 // Add this styled component at the top level of your file
