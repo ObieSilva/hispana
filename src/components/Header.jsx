@@ -77,7 +77,7 @@ const Header = () => {
           <FiX className="text-black" size="25" onClick={toggleMenu} />
         </div>
         <div className="p-4 flex flex-col h-full">
-          {/* <h6 className="font-medium text-xl mt-10 mb-4">Peticiones</h6> */}
+          <h6 className="font-medium text-xl mt-10 mb-4">Petición de Oración</h6>
           <PrayerRequestForm />
           {/* <div className="w-full">
             <h6 className="font-medium text-xl mt-10 mb-4">Ultimo Sermón</h6>
