@@ -79,15 +79,15 @@ const Header = () => {
         <div className="p-4 flex flex-col h-full">
           <h6 className="font-medium text-xl mt-10 mb-4">Peticiones</h6>
           <PrayerRequestForm />
-          <div className="w-full">
+          {/* <div className="w-full">
             <h6 className="font-medium text-xl mt-10 mb-4">Ultimo Sermón</h6>
             <SermonEmbed />
-          </div>
-          <div>
+          </div> */}
+          {/* <div>
             <h6 className="font-medium text-xl mt-10 mb-4">Dirección</h6>
             <MapEmbed />
-          </div>
-          <div className="pb-14">
+          </div> */}
+          {/* <div className="pb-14">
             <h6 className="font-medium text-xl mt-10 mb-4">
               Mantente Informado
             </h6>
@@ -103,7 +103,7 @@ const Header = () => {
                 </button>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </>
@@ -153,7 +153,7 @@ const Header = () => {
           </div>
           {/* Desktop Tooltip for Notification */}
           <div className="hidden md:block">
-            <BootstrapTooltip title="Peticiones y Último Servicio" arrow>
+            <BootstrapTooltip title="Peticiones" arrow>
               <button
                 onClick={toggleMenu}
                 aria-label="More Information"
