@@ -147,7 +147,7 @@ const Header = () => {
           </div>
           {/* Desktop Tooltip for Notification */}
           <div className="hidden md:block">
-            <BootstrapTooltip title="Ver Mas Información" arrow>
+            <BootstrapTooltip title="Peticiones y Último Servicio" arrow>
               <button
                 onClick={toggleMenu}
                 aria-label="More Information"
