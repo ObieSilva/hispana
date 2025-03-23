@@ -6,7 +6,7 @@ import moment from "moment";
 import PropTypes from "prop-types";
 
 // Components import
-import HispanaButton from "./reusable/HispanaButton";
+// import HispanaButton from "./reusable/HispanaButton";
 
 const UpcomingEvent = ({
   eventLocation,
