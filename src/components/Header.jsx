@@ -7,8 +7,8 @@ import { Tooltip, tooltipClasses } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import logo from "../assets/images/logo.png";
 import MainMenu from "./MainMenu";
-import MapEmbed from "./MapEmbed";
-import SermonEmbed from "./CurrentSermon";
+// import MapEmbed from "./MapEmbed";
+// import SermonEmbed from "./CurrentSermon";
 import PrayerRequestForm from "./PrayerRequestForm";
 
 // Add this styled component at the top level of your file
@@ -77,17 +77,17 @@ const Header = () => {
           <FiX className="text-black" size="25" onClick={toggleMenu} />
         </div>
         <div className="p-4 flex flex-col h-full">
-          <h6 className="font-medium text-xl mt-10 mb-4">Peticiones</h6>
+          <h6 className="font-medium text-xl mt-10 mb-4">Petición de Oración</h6>
           <PrayerRequestForm />
-          <div className="w-full">
+          {/* <div className="w-full">
             <h6 className="font-medium text-xl mt-10 mb-4">Ultimo Sermón</h6>
             <SermonEmbed />
-          </div>
-          <div>
+          </div> */}
+          {/* <div>
             <h6 className="font-medium text-xl mt-10 mb-4">Dirección</h6>
             <MapEmbed />
-          </div>
-          <div className="pb-14">
+          </div> */}
+          {/* <div className="pb-14">
             <h6 className="font-medium text-xl mt-10 mb-4">
               Mantente Informado
             </h6>
@@ -103,7 +103,7 @@ const Header = () => {
                 </button>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </>
@@ -153,7 +153,7 @@ const Header = () => {
           </div>
           {/* Desktop Tooltip for Notification */}
           <div className="hidden md:block">
-            <BootstrapTooltip title="Ver Mas Información" arrow>
+            <BootstrapTooltip title="Peticiones" arrow>
               <button
                 onClick={toggleMenu}
                 aria-label="More Information"
