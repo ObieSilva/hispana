@@ -101,14 +101,14 @@ const UpcomingEvent = ({
             </div>
           </div>
         </div>
-        <div className="w-full lg:w-[175px] hover:text-[#000]">
+        {/* <div className="w-full lg:w-[175px] hover:text-[#000]">
           <HispanaButton
             sx={{ width: "100%", padding: "8px" }}
             title="Ver Evento"
             backgroundColor="#c13636"
             variant="contained"
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );

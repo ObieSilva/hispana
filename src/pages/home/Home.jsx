@@ -7,6 +7,7 @@ import PropTypes from "prop-types";
 import familyImage from "../../assets/images/family.svg";
 import calendar from "../../assets/images/calendar.svg";
 import ministries from "../../assets/images/ministries.svg";
+import MapEmbed from "../../components/MapEmbed";
 
 const Home = ({ data }) => {
   const pages = data?.pages?.edges || [];
@@ -65,6 +66,12 @@ const Home = ({ data }) => {
                 />
               </div>
             </div>
+          </div>
+          <div className="container max-w-lg mx-auto px-4 py-14 lg:px-0">
+            <h2 className="block font-bold text-4xl text-center pb-8">
+              Donde Estamos Ubicados
+            </h2>
+            <MapEmbed />
           </div>
         </div>
       </div>
