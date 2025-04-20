@@ -1,3 +1,4 @@
+// src/wpgraphql/queries.jsx
 import { gql } from "@apollo/client";
 
 export const HOME_QUERIES = gql`
@@ -93,6 +94,62 @@ export const MAIN_MENU = gql`
               uri
             }
           }
+        }
+      }
+    }
+  }
+`;
+
+export const GET_SERMONS = gql`
+  query GetSermons {
+    sermons {
+      nodes {
+        id
+        title
+        slug
+        excerpt(format: RAW) # Get raw excerpt to handle truncation on frontend
+        featuredImage {
+          node {
+            sourceUrl
+            altText
+          }
+        }
+        sermonDetails {
+          youtubeUrl
+          speaker
+          sermonDate
+          serviceType
+        }
+      }
+    }
+  }
+`;
+
+export const GET_MINISTRIES = gql`
+  query GetMinistries {
+    ministries {
+      nodes {
+        id
+        title
+        slug
+        excerpt(format: RAW)
+        featuredImage {
+          node {
+            sourceUrl
+            altText
+            mediaDetails {
+              width
+              height
+            }
+            mediaItemUrl
+          }
+        }
+        ministryDetails {
+          leader
+          meetingTime
+          contactEmail
+          ageGroup
+          isActive
         }
       }
     }

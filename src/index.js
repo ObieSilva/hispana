@@ -10,9 +10,14 @@ import { client } from "./client";
 // Styles import
 import "./styles/main.css";
 
+// Layout Import
+import MainLayout from "./layouts/MainLayout";
+
 // Pages import
-import App from "./App";
+import HomePage from "./pages/HomePage";
 import PageTemplate from "./pages/templates/PageTemplate";
+import SermonsPage from "./pages/SermonsPage";
+import MinistriesPage from "./pages/MinistriesPage";
 
 // React ReactToastify
 import { ToastContainer } from "react-toastify";
@@ -30,11 +35,25 @@ TagManager.initialize(tagManagerArgs);
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
-  },
-  {
-    path: "/:slug",
-    element: <PageTemplate />,
+    element: <MainLayout />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />,
+      },
+      {
+        path: "sermones",
+        element: <SermonsPage />,
+      },
+      {
+        path: "ministerios",
+        element: <MinistriesPage />,
+      },
+      {
+        path: ":slug",
+        element: <PageTemplate />,
+      },
+    ],
   },
 ]);
 
