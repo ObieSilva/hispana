@@ -150,6 +150,11 @@ export const GET_MINISTRIES = gql`
           contactEmail
           ageGroup
           isActive
+          linkedPage {
+            ... on Page {
+              uri
+            }
+          }
         }
       }
     }

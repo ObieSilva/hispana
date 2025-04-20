@@ -6,11 +6,9 @@ import { useQuery } from "@apollo/client";
 import { DEFAULT_PAGE_TEMPLATE } from "../../wpgraphql/queries";
 
 // Components import
-import Header from "../../components/Header";
 import FeaturedImage from "../../components/FeaturedImage";
 import Loading from "../../components/reusable/Loading";
 import ErrorAlert from "../../components/reusable/ErrorAlert";
-import CookieNotice from "../../components/CookieNotice";
 
 const PageTemplate = () => {
   const { slug } = useParams();
@@ -30,7 +28,6 @@ const PageTemplate = () => {
 
   return (
     <>
-      <Header />
       {featuredImage && (
         <FeaturedImage
           sourceUrl={featuredImage.node.sourceUrl}
@@ -43,7 +40,6 @@ const PageTemplate = () => {
         <h1>{title}</h1>
         <div dangerouslySetInnerHTML={{ __html: content }} />
       </div>
-      <CookieNotice />
     </>
   );
 };

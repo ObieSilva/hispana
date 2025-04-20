@@ -19,7 +19,7 @@ const MinistriesPage = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-8">Ministerios</h1>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
         {ministries.map((ministry) => (
           <ContentCard
             key={ministry.id}
@@ -29,7 +29,7 @@ const MinistriesPage = () => {
             leader={ministry.ministryDetails?.leader}
             meetingTime={ministry.ministryDetails?.meetingTime}
             isActive={ministry.ministryDetails?.isActive}
-            linkTo={`/ministerios/${ministry.slug}`}
+            linkTo={ministry.ministryDetails?.linkedPage?.uri || `/ministerios/${ministry.slug}`}
           />
         ))}
       </div>
