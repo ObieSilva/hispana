@@ -41,8 +41,8 @@ const ContentCard = ({
       // For sermons, always open YouTube URL in new tab
       window.open(linkTo, "_blank");
     } else {
-      // For ministries, use internal navigation with slug
-      window.location.href = linkTo;
+      // For ministries, use internal navigation with navigate
+      navigate(linkTo);
     }
   };
 
