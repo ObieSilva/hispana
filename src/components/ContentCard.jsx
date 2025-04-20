@@ -8,7 +8,7 @@ import {
   Button,
   Chip,
 } from "@mui/material";
-import { FaCalendarAlt, FaUser, FaEnvelope } from "react-icons/fa";
+import { FaCalendarAlt, FaUser } from "react-icons/fa";
 
 const ContentCard = ({
   title,
