@@ -28,7 +28,8 @@ const SermonsPage = () => {
             featuredImage={sermon.featuredImage?.node?.sourceUrl}
             date={sermon.sermonDetails?.sermonDate}
             leader={sermon.sermonDetails?.speaker}
-            linkTo={`/sermones/${sermon.slug}`}
+            linkTo={sermon.sermonDetails?.youtubeUrl}
+            isSermon={true}
           />
         ))}
       </div>

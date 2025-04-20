@@ -19,6 +19,7 @@ const ContentCard = ({
   meetingTime,
   isActive,
   linkTo,
+  isSermon = false,
 }) => {
   const navigate = useNavigate();
 
@@ -34,8 +35,15 @@ const ContentCard = ({
       : date // If not a valid date, use it as is (for free text)
     : null;
 
-  const handleClick = () => {
-    navigate(linkTo);
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (isSermon) {
+      // For sermons, always open YouTube URL in new tab
+      window.open(linkTo, "_blank");
+    } else {
+      // For ministries, use internal navigation with slug
+      window.location.href = linkTo;
+    }
   };
 
   return (
@@ -149,7 +157,7 @@ const ContentCard = ({
           color="primary"
           className="bg-blue-600 hover:bg-blue-700"
         >
-          Learn More
+          Ver Mas
         </Button>
       </div>
     </Card>
