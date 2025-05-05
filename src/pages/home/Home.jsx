@@ -8,6 +8,15 @@ import familyImage from "../../assets/images/family.svg";
 import calendar from "../../assets/images/calendar.svg";
 import ministries from "../../assets/images/ministries.svg";
 import MapEmbed from "../../components/MapEmbed";
+import { useState } from "react";
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Button,
+} from "@mui/material";
+import PrayerRequestForm from "../../components/PrayerRequestForm";
 
 const Home = ({ data }) => {
   const pages = data?.pages?.edges || [];
@@ -24,6 +33,10 @@ const Home = ({ data }) => {
   const heroSlides =
     data?.pages?.edges?.find(({ node }) => node.home?.heroSlides)?.node?.home
       ?.heroSlides ?? [];
+  const [visitModalOpen, setVisitModalOpen] = useState(false);
+
+  const handleOpenVisitModal = () => setVisitModalOpen(true);
+  const handleCloseVisitModal = () => setVisitModalOpen(false);
 
   return (
     <div className="App h-full">
@@ -53,10 +66,12 @@ const Home = ({ data }) => {
                   hoverBackground="#000"
                 />
                 <FeatureBlock
-                  linkTo="/visita"
+                  linkTo="#"
                   title="Planear una Visita"
                   imageSrc={calendar}
                   content="Planear una visita a nuestra iglesia es un paso hacia una experiencia espiritual y acogedora. Te invitamos a explorar nuestras actividades y unirte a nuestra comunidad de fe y esperanza."
+                  hoverBackground="#000"
+                  onClick={handleOpenVisitModal}
                 />
                 <FeatureBlock
                   linkTo="/ministerios"
@@ -75,6 +90,26 @@ const Home = ({ data }) => {
           </div>
         </div>
       </div>
+      <Dialog
+        open={visitModalOpen}
+        onClose={handleCloseVisitModal}
+        maxWidth="sm"
+        fullWidth
+      >
+        <DialogTitle>Planear una Visita</DialogTitle>
+        <DialogContent>
+          <PrayerRequestForm
+            title="¿Cuándo planeas visitarnos?"
+            description="Cuéntanos cuándo planeas visitarnos y cualquier detalle que quieras compartir."
+            submitButtonText="Enviar Solicitud de Visita"
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseVisitModal} color="primary">
+            Cerrar
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 };

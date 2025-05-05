@@ -8,7 +8,11 @@ import {
   Paper,
 } from "@mui/material";
 
-const PrayerRequestForm = () => {
+const PrayerRequestForm = ({
+  title = "¿Cómo podemos orar por ti?",
+  description = "Ingresa tu petición de oración aquí...",
+  submitButtonText = "Enviar Petición",
+}) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.target;
@@ -93,7 +97,7 @@ const PrayerRequestForm = () => {
           {/* Prayer Request Section */}
           <Box sx={{ mb: 4 }}>
             <Typography variant="h6" sx={{ mb: 1 }}>
-              ¿Cómo podemos orar por ti?
+              {title}
             </Typography>
             <TextField
               id="prayerRequest"
@@ -102,7 +106,7 @@ const PrayerRequestForm = () => {
               multiline
               rows={4}
               fullWidth
-              placeholder="Ingresa tu petición de oración aquí..."
+              placeholder={description}
             />
           </Box>
 
@@ -170,7 +174,7 @@ const PrayerRequestForm = () => {
               },
             }}
           >
-            Enviar Petición
+            {submitButtonText}
           </Button>
         </form>
       </Paper>

@@ -2,11 +2,15 @@ import { useNavigate } from "react-router-dom";
 import { CiCircleChevRight } from "react-icons/ci";
 import PropTypes from "prop-types";
 
-const FeatureBlock = ({ linkTo, title, imageSrc, content }) => {
+const FeatureBlock = ({ linkTo, title, imageSrc, content, onClick }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(linkTo);
+    if (onClick) {
+      onClick();
+    } else {
+      navigate(linkTo);
+    }
   };
 
   return (
@@ -38,6 +42,7 @@ FeatureBlock.propTypes = {
   title: PropTypes.string.isRequired,
   imageSrc: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
 };
 
 export default FeatureBlock;
