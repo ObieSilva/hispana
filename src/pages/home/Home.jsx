@@ -46,7 +46,7 @@ const Home = ({ data }) => {
               </h2>
               <div className="grid gap-1 md:grid-cols-2 lg:grid-cols-3 mt-4 bg-[#ffffff]">
                 <FeatureBlock
-                  linkTo="/creencias"
+                  linkTo="/sobre-nosotros"
                   title="Nuestras Creencias"
                   imageSrc={familyImage}
                   content="El amor es un atributo clave en el cristianismo. El amor de Dios es un concepto prevalente tanto en el Antiguo Testamento como en el Nuevo Testamento."
