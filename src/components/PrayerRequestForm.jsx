@@ -12,6 +12,7 @@ const PrayerRequestForm = ({
   title = "¿Cómo podemos orar por ti?",
   description = "Ingresa tu petición de oración aquí...",
   submitButtonText = "Enviar Petición",
+  successMessage = "¡Gracias por tu petición de oración! Nos pondremos en contacto contigo pronto.",
 }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -30,9 +31,7 @@ const PrayerRequestForm = ({
 
       if (response.ok) {
         // Show success message
-        alert(
-          "¡Gracias por tu petición de oración! Nos pondremos en contacto contigo pronto."
-        );
+        alert(successMessage);
         form.reset();
       } else {
         const errorData = await response.text();

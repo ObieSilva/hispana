@@ -102,6 +102,7 @@ const Home = ({ data }) => {
             title="¿Cuándo planeas visitarnos?"
             description="Cuéntanos cuándo planeas visitarnos y cualquier detalle que quieras compartir."
             submitButtonText="Enviar Solicitud de Visita"
+            successMessage="¡Gracias por planear tu visita! Nos pondremos en contacto contigo para darte la bienvenida."
           />
         </DialogContent>
         <DialogActions>
