@@ -17,6 +17,7 @@ import {
   Button,
 } from "@mui/material";
 import PrayerRequestForm from "../../components/PrayerRequestForm";
+import AnnouncementBanner from "../../components/AnnouncementBanner";
 
 const Home = ({ data }) => {
   const pages = data?.pages?.edges || [];
@@ -34,6 +35,8 @@ const Home = ({ data }) => {
     data?.pages?.edges?.find(({ node }) => node.home?.heroSlides)?.node?.home
       ?.heroSlides ?? [];
   const [visitModalOpen, setVisitModalOpen] = useState(false);
+  const informationBanner =
+    data?.pages?.edges?.[0]?.node?.home?.informationBanner;
 
   const handleOpenVisitModal = () => setVisitModalOpen(true);
   const handleCloseVisitModal = () => setVisitModalOpen(false);
@@ -48,6 +51,15 @@ const Home = ({ data }) => {
           eventPageUri={eventPageUri}
           eventTitle={eventTitle}
         />
+        {informationBanner?.displayBanner && (
+          <div className="container max-w-lg mx-auto px-4 lg:px-0">
+            <AnnouncementBanner
+              information={informationBanner.information}
+              displayBanner={informationBanner.displayBanner}
+              bannerType="informationBanner"
+            />
+          </div>
+        )}
         <div>
           {pages.map(({ node }) => (
             <PageContent key={node.title} node={node} />
