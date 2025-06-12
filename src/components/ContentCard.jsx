@@ -48,7 +48,7 @@ const ContentCard = ({
 
   return (
     <Card
-      className="bg-white rounded-lg overflow-hidden border border-[#f5f5f5] h-full flex flex-col"
+      className="bg-white rounded-lg overflow-hidden border border-[#f5f5f5] h-full flex flex-col relative"
       elevation={0}
     >
       {/* Image Section */}
