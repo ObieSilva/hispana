@@ -4,8 +4,6 @@ import { FiX, FiMenu } from "react-icons/fi";
 import { RiFacebookFill, RiInstagramLine, RiYoutubeLine } from "react-icons/ri";
 import logo from "../assets/images/logo.png";
 import MainMenu from "./MainMenu";
-// import MapEmbed from "./MapEmbed";
-// import SermonEmbed from "./CurrentSermon";
 import PrayerRequestForm from "./PrayerRequestForm";
 
 const Header = () => {
@@ -21,7 +19,6 @@ const Header = () => {
     { icon: RiYoutubeLine, url: "https://www.youtube.com/@hispanacfc" },
   ];
 
-  // Mobile Menu Overlay
   const mobileMenuOverlay = (
     <div
       className={`fixed top-0 left-0 w-full h-full bg-black transition-transform duration-300 z-[100] ${
@@ -36,7 +33,7 @@ const Header = () => {
         <FiX size="25" />
       </button>
       <div className="flex flex-col items-center justify-center h-full gap-4 text-white text-xl [&_a]:text-white">
-        <MainMenu />
+        <MainMenu onLinkClick={toggleBurger} />
         <button
           onClick={() => {
             toggleMenu();
@@ -51,7 +48,6 @@ const Header = () => {
     </div>
   );
 
-  // Más Información Overlay (for notifications / additional info)
   const moreInfoOverlay = (
     <>
       <button
@@ -75,31 +71,6 @@ const Header = () => {
             Petición de Oración
           </h6>
           <PrayerRequestForm />
-          {/* <div className="w-full">
-            <h6 className="font-medium text-xl mt-10 mb-4">Ultimo Sermón</h6>
-            <SermonEmbed />
-          </div> */}
-          {/* <div>
-            <h6 className="font-medium text-xl mt-10 mb-4">Dirección</h6>
-            <MapEmbed />
-          </div> */}
-          {/* <div className="pb-14">
-            <h6 className="font-medium text-xl mt-10 mb-4">
-              Mantente Informado
-            </h6>
-            <div className="flex gap-2">
-              {socialMediaLinks.map(({ icon: Icon, url }) => (
-                <button
-                  key={url}
-                  className="p-2 rounded-full bg-whiteShade cursor-pointer hover:text-accent border border-border"
-                  onClick={() => window.open(url, "_blank")}
-                  aria-label={`Visit our ${Icon.name} page`}
-                >
-                  <Icon size="20" />
-                </button>
-              ))}
-            </div>
-          </div> */}
         </div>
       </div>
     </>
@@ -112,7 +83,6 @@ const Header = () => {
           <img className="w-40 h-full object-contain" src={logo} alt="Logo" />
         </Link>
         <div className="flex items-center gap-2">
-          {/* Mobile Menu Button */}
           <button
             onClick={toggleBurger}
             className="md:hidden text-2xl"
@@ -120,9 +90,8 @@ const Header = () => {
           >
             {isBurgerOpen ? <FiX /> : <FiMenu />}
           </button>
-          {/* Desktop Menu */}
           <div className="hidden md:flex font-semibold items-center gap-2">
-            <MainMenu />
+            <MainMenu onLinkClick={toggleBurger} />
             <button
               onClick={toggleMenu}
               className="mr-2 py-1 rounded transition-colors duration-200 text-secondary hover:text-accent focus:outline-none border-none bg-transparent font-semibold"
@@ -131,7 +100,6 @@ const Header = () => {
               Peticiones
             </button>
           </div>
-          {/* Social Media Icons - Hidden on Mobile */}
           <div className="hidden md:flex gap-2">
             {socialMediaLinks.map(({ icon: Icon, url }) => (
               <button

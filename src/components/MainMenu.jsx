@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/client";
 import { MAIN_MENU } from "../wpgraphql/queries";
 import { Link, useLocation } from "react-router-dom";
 
-const MainMenu = () => {
+const MainMenu = ({ onLinkClick }) => {
   const { data } = useQuery(MAIN_MENU);
   const location = useLocation();
 
@@ -21,11 +21,12 @@ const MainMenu = () => {
       <ul className="flex flex-col items-center gap-2 md:flex-row md:gap-2">
         {menuItems.map(({ node }) => (
           <li key={node.label}>
-            <Link 
+            <Link
               to={node.uri}
+              onClick={onLinkClick}
               className={`transition-colors duration-200 md:border-r border-border pr-2 ${
-                location.pathname === node.uri 
-                  ? "text-accent" 
+                location.pathname === node.uri
+                  ? "text-accent"
                   : "text-secondary hover:text-accent"
               }`}
             >
